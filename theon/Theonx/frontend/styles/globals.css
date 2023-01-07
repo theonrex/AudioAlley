@@ -1,0 +1,641 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+body {
+  font-family: "Titillium Web", "Cabin", sans-serif;
+  background-color: rgb(255, 255, 255); 
+   /* background: linear-gradient(7deg, rgba(242, 198, 240, 0.2196078431) 0%, #ffffff 100%); */
+  background-repeat: no-repeat;
+}
+a{
+  text-decoration: none !important;
+  color: unset !important;
+}
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+border-top-color: #00000021;
+  border-right-color: transparent;
+  border-bottom-color: #00000021;
+  border-left-color: transparent;
+    border-style: solid;
+border-top-width: 1px !important;
+    border-right-width: 0px !important;
+    border-bottom-width: 1px !important;
+    border-left-width: 0px !important;
+  border-color: rgba(0, 0, 0, 0.323) !important;
+  }
+    
+td, th {
+
+    text-align: center;
+    padding: 8px;
+}
+.market_Hover:hover,
+.market_Hover:active{
+  background-color: #ff209709;
+
+}
+td,
+th {
+  border-left: 0px transparent;
+  border-right: 0px transparent;  
+    border-top: 1px transparent;
+      border-bottom: 1px transparent purple;
+  padding: 8px;
+}
+th , td{ 
+  padding: 1em 0;
+
+}
+.market_cap_rank{
+  text-align: center !important;
+}
+p{
+  margin-bottom: 0 !important;
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+tr{
+border-top-color: #00000021;
+  border-right-color: transparent;
+  border-bottom-color: #00000021;
+  border-left-color: transparent;
+          border-style: solid;
+        border-width: 1px;
+        margin-bottom: 0.6em;
+}
+
+/* tr:nth-child(even) {
+  background-color: #dddddd;
+} */
+li{
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+ul{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+hr{
+color: orange;
+    background-color: orange;
+    height: 1px;
+    border: solid 1px;
+    
+}
+
+.col7 {
+  width: 70%;
+  float: left;
+}
+.col1_5{
+  width: 90px;
+  float: left;
+}
+
+.col100{
+  width: 100%;
+}
+footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+header,
+article {
+  font-family: "Titillium Web", "Cabin", sans-serif !important;
+}
+/* p{
+  margin: auto !important;
+} */
+/* col */
+.col25{
+  width: 25%;
+  float: left;
+  padding: 5px;
+}
+
+
+.col30 {
+  width: 29.5%;
+  float: left;
+  padding: 5px;
+}
+.col40 {
+  width: 39.5%;
+  float: left;
+  padding: 5px;
+}
+.col50 {
+  width: 49.5%;
+  float: left;
+  padding: 5px;
+}
+.col60 {
+  width: 59.5%;
+  float: left;
+  padding: 5px;
+}
+.col70 {
+  width: 69.5%;
+  float: left;
+  padding: 5px;
+}
+.col6{
+  width: 49.5%;
+  float: left;
+  padding: 20px;
+}
+
+/* loaders */
+/* From uiverse.io by @mobinkakei */
+.loader-3 {
+
+    display: flex;
+      flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.circle {
+  width: 1em;
+      margin: 0 1em;
+
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+}
+
+.circle:nth-child(1) {
+  background-color: #90be6d;
+}
+
+.circle:nth-child(2) {
+  background-color: #f9c74f;
+}
+
+.circle:nth-child(3) {
+  background-color: #f8961e;
+}
+
+.circle:nth-child(4) {
+  background-color: #f3722c;
+}
+
+.circle:nth-child(5) {
+  background-color: #f94346;
+}
+
+.circle::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: animateLoader38 2s ease-out infinite;
+}
+
+.circle:nth-child(1)::before {
+  background-color: #90be6d;
+}
+
+.circle:nth-child(2)::before {
+  background-color: #f9c74f;
+  animation-delay: 0.2s;
+}
+
+.circle:nth-child(3)::before {
+  background-color: #f8961e;
+  animation-delay: 0.4s;
+}
+
+.circle:nth-child(4)::before {
+  background-color: #f3722c;
+  animation-delay: 0.6s;
+}
+
+.circle:nth-child(5)::before {
+  background-color: #f94346;
+  animation-delay: 0.8s;
+}
+
+@keyframes animateLoader38 {
+  0% {
+    transform: scale(1);
+  }
+
+  50%,
+  75% {
+    transform: scale(2.5);
+  }
+
+  80%,
+  100% {
+    opacity: 0;
+  }
+}
+.market_data img{
+  width: 20px;
+}
+:active,
+:focus{
+  border-color: transparent !important;
+}
+
+body {
+  font-family: "Titillium Web", "Cabin", sans-serif !important;
+}
+.rowx{
+  display: table;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-top-color: gray;
+    border-right-color: grey;
+    border-bottom-color: grey;
+    border-left-color: grey;
+}
+svg, circle{
+  width: 150px;
+  background: transparent;
+  fill: none !important;
+  fill-opacity: inherit !important;
+
+}
+.bi-chevron{
+  color: black;
+}
+
+.coin_symbol_widget{
+  display: none;
+}
+.coin_name_widget {
+      display: flex;
+    font-size: 1em;
+    font-weight: 700;
+    margin: 0.3em 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none!important;
+}
+.widget_Details{
+  padding: 0 0.6em;
+}
+
+canvas{
+  width: 100% !important;
+}
+.purple_text{
+  color: #c7006b;
+    background: #c7006b;
+      background: linear-gradient(to right, #640093e3 22%, #c7006b 74%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+
+.line {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  background: #c7006b ;
+  background: linear-gradient(to right, #640093e3  22%, #c7006b  74%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.line::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 5px;
+  left: 40%;
+  bottom: 0;
+  background: #c7006b ;
+  background: linear-gradient(to right, #640093e3  22%, #c7006b  74%);
+}
+
+.rowx {
+  display: table;
+  width: 100%;
+}
+
+.navbar-light .navbar-toggler {
+  color: rgba(255, 255, 255, 0.5490196078) !important;
+  margin-right: 0.2em;
+  border-color: rgba(255, 255, 255, 0.97) !important;
+  border-color: rgba(255, 255, 255, 0.69) !important;
+}
+
+.active {
+  color: #c7006b !important;
+}
+
+.activebtn {
+  color: white !important;
+}
+
+.nav-link {
+  font-weight: bold !important;
+  margin: auto 14px;
+  color: black !important;
+  text-transform: capitalize;
+  font-family: "Titillium Web", "Cabin", sans-serif !important;
+}
+.nav_mg{
+  margin-top: 1em;
+}
+
+.nav-link:hover {
+  color: #c7006b !important;
+}
+.purple_btn_normal {
+
+  background: #c7006b !important;
+  background: linear-gradient(18deg, rgb(199, 0, 107) 0%, rgb(14, 0, 115) 100%);
+  border: none;
+  padding: 10px 10px;
+  display: inline-block;
+  /* font-size: 15px; */
+  font-weight: 600;
+  border-radius: 7px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  color: white !important;
+}
+.purple_btn_normal_outlined{
+  border-color: #c7006b !important;
+    
+    padding: 10px 10px;
+    display: inline-block;
+    /* font-size: 15px; */
+    font-weight: 600;
+    border-radius: 7px;
+    text-transform: uppercase;
+    cursor: pointer;
+  
+    color: black !important;
+}
+
+.purple_btn {
+   
+        background: #c7006b !important;
+        background: linear-gradient(18deg, rgb(199, 0, 107) 0%, rgb(14, 0, 115) 100%);
+        border: none;
+        padding: 10px 10px;
+        display: inline-block;
+        font-size: 1em;
+        font-weight: 600;
+        border-radius: 7px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transform: skew(-15deg);
+        border-radius: 0.5em;
+  padding: 0.5em 2em !important;
+  color: white !important;
+}
+
+.navbar .dark_mobile_show:hover,
+.navbar .dark_hide_mobile :hover {
+  border-radius: 0;
+  color: white !important;
+  background-color: transparent;
+}
+/*coinId*/
+
+/* pagenation */
+
+.stack_pagenation {
+padding-top: 1.5em !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-content: flex-end !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.stack_pagenation nav{
+display: flex;
+}
+
+.stack_pagenation svg{
+  fill: black !important;
+}
+.css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon {
+    /* -webkit-user-select: none; */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill-opacity:inherit !important;
+    fill: black !important;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-size: 1.5rem;
+    font-size: 1.25rem;
+    margin: 0 -8px;
+}
+
+@media screen and (min-width: 1204px) {
+  
+  .navbar .dark_mobile_show {
+    display: block;
+  }
+
+  .dark_hide_mobile {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+.col30,
+.col6,
+.col50,
+.col60,
+.col70,
+.col25 {
+    width: 100%;
+    padding: 2px;
+  }
+  .navbar-nav .dark_hide_mobile {
+    display: none !important;
+  }
+
+  .container-fluid>.navbar-brand {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: flex-start !important;
+  }
+
+  .container-fluid>.nav_t {
+    position: absolute;
+    right: 3em !important;
+    align-items: center;
+    justify-content: flex-end !important;
+  }
+
+  .navbar>.container-fluid,
+  .navbar>.container-lg,
+  .navbar>.container-md,
+  .navbar>.container-sm,
+  .navbar>.container-xl,
+  .navbar>.container-xxl {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: unset !important;
+  }
+
+  .navbar .switch-checkbox {
+    padding-bottom: 5px;
+  }
+
+  .navbar .dark_mobile_show {
+    display: block;
+    position: absolute;
+    right: 0 !important;
+    align-items: center;
+    justify-content: flex-end !important;
+  }
+
+  .navbar .nav-link {
+    font-size: 1.5em;
+    display: block;
+    padding: 1rem 1em !important;
+    color: #7800A3;
+    margin: auto 1px;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+
+
+}
+
+img{
+  width: 100%;
+}
+.coin_name_widget_s{
+  font-size: 1em;
+  padding-left: 0.6em;
+}
+
+@media screen and (max-width:720px) {
+
+  .coinId_Price h1{
+    font-size: 1.5em;
+  }
+  .news_text header {
+    font-size: 1.3em;
+  }
+
+  .coin_name_widget {
+    display: block;
+    margin: 1em auto 0;
+    font-size: 1em;
+    font-weight: bold;
+    flex-direction: unset;
+    flex-wrap: unset;
+    align-content: unset;
+    justify-content: unset;
+    align-items: unset;
+    padding-left: 0.5em;
+    border: none !important;
+    text-align: left;
+  }
+.coin_name_widget_s,
+.price_change_percentage_24h .red  i,
+.price_change_percentage_24h .green i {
+  display: none;
+}
+
+  .coin_symbol_widget{
+    display: block !important;
+    text-transform: capitalize;
+  }
+  .coin_name_widget img,
+        .coin_symbol_widget
+  {
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 0.9em;
+  }
+    .table_tr_id th {
+      text-align: center !important;
+    }
+
+        td,
+        th {
+          
+          padding: 10px;
+          font-size: 0.7em !important;
+        }
+        .coinId_Price h1 {
+            font-weight: 500;
+            font-size: 1.32em;
+            font-weight: 700;
+        }
+        .coinPageId img {
+            width: 18px;
+        }
+        .coinId_Price img {
+            margin-right: 0.6em;
+        }
+        .coin_Id_price h1 {
+            margin-right: 0.2em;
+            font-size: 1.3em;
+            font-weight: 500;
+            font-weight: 700;
+        }
+        .news_text {
+    padding: 1em 1.3em;
+}
+}
+
+@media screen and (max-width:346px) {
+  .market_cap ,
+  .market_cap_head{
+    display: none;
+  }
+  .news_text {
+    padding: 0.8em 1em;
+}
+  .news_text header {
+    font-size: 1em;
+  }
+}
