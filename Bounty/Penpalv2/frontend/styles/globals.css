@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+/* body{
+  color: rgb(255, 255, 255) !important;
+} */
+.card{
+  background-color: #800044 !important;
+}
+.imgDiv {
+  
+  display: inline-grid;
+  margin: 10px;
+}
+.imgDiv button {
+  margin: 10px auto 0px auto;
+  
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: unset !important;
+  margin-block-end: unset !important;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: unset !important;
+}
+.rowx{
+  display: table;
+  width: 100%;
+
+}
+p{
+  margin: unset !important;
+  padding: unset !important;
+}
+.container {
+  width: 80%;
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+
+button {
+  padding: 7px 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ffbf00;
+  color: white;
+}
+
+
+
+.imgGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 50px;
+  margin-top: 50px;
+  grid-auto-flow: dense;
+  /* width: 100%; */
+}
+
+.contentDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #4CAF50;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+
+.sideAndMainBar{
+    display: flex;
+
+}
+.sideAndMainBar .col80{
+    padding-top: 100px;
+
+}
+
+.sidebar{
+    position: fixed;
+  top: 0;
+  padding-top: 3em;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+background-color:rgb(43, 43, 43);
+}
+
+.sidebar ul{
+  padding: 4em 0;
+}
+.mainbar{
+    width:  100%;
+}
+
+
+.col80{
+    width: 80%;
+   margin-left: 200px; /* Set margin to the width of the sidebar */
+
+}
+.pageProps{
+    position: relative;
+}
+
+nav{
+  padding-bottom: 0em !important;
+    padding-top: 0 !important;
+    /* height: 4em; */
+}
+.sideAndMainBar .col80 .secure{
+    padding-top: 10px;
+}
+
+.secure{
+  padding: 55px  3em 0;
+    display: flex;
+      letter-spacing: 5px;
+        line-height: 1.1;
+
+
+  justify-content: left;
+  
+}
+.secure_ConnectButton{
+  padding-top: 2em;
+  
+}
+.secure h1{
+  padding: 3em 0 0;
+  font-size: 3em;
+  color: white;
+}
+.secure p{
+  font-size: 1.5em;
+  color: white;
+  
+}
+.secure h2{
+  font-size: 7em;
+  color: rgb(255, 119, 0);
+  height: fit-content;
+}
+.secure h2 {
+  background: #ffbf00; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffbf00,
+    #731b00
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffbf00, #d52903);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
+.ju367vb0 {
+    background: black !important;
+    color: white !important;
+}
+.ju367vgo,
+ .ju367vgu {
+     color: white !important;
+ 
+}
+
+@media screen and (max-width: 1000px) {
+  .imgGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .imgGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

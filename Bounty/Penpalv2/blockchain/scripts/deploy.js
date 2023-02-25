@@ -2,13 +2,15 @@ const hre = require("hardhat");
 const fs = require("fs");
 
 async function main() {
-  const PENPALMarketplace = await hre.ethers.getContractFactory("PENPAL");
-  const penpalMarketplace = await PENPALMarketplace.deploy();
-  await penpalMarketplace.deployed();
-  console.log("penpalMarketplace deployed to:", penpalMarketplace.address);
+  const AUDIOALLEYMarketplace = await hre.ethers.getContractFactory(
+    "AUDIOALLEY"
+  );
+  const audioalleyMarketplace = await AUDIOALLEYMarketplace.deploy();
+  await audioalleyMarketplace.deployed();
+  console.log("penpalMarketplace deployed to:", audioalleyMarketplace.address);
 
   const NFT = await hre.ethers.getContractFactory("NFT");
-  const nft = await NFT.deploy(penpalMarketplace.address);
+  const nft = await NFT.deploy(audioalleyMarketplace.address);
   await nft.deployed();
   console.log("nft deployed to:", nft.address);
 }
