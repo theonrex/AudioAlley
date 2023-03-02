@@ -105,7 +105,7 @@ export default function Search() {
           {filteredNFTs.length && !loading ? (
             filteredNFTs?.map((nft, index) => (
               <div key={index} className="search_result">
-                <a href={`/${nft.itemId}`} prefetch={false}>
+                <a href={`/${nft.itemId}`} >
                   <div
                     className="search_result_flex"
                     // onClick={() => {

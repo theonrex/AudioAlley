@@ -11,7 +11,6 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import "react-jinke-music-player/assets/index.css";
 import "../styles/style.css";
-
 import Layout from "../Layout/Layout";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import {
@@ -83,8 +82,8 @@ function MyApp({ Component, pageProps }) {
             <link rel="shortcut icon" href="/assets/music logo.png" />
             <title> Audio Alley</title>
             <link
+              href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"
               rel="stylesheet"
-              href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css"
             />
           </Head>
           <Navbar />

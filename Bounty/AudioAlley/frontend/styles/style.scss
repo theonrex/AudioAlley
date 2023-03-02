@@ -3099,21 +3099,17 @@ input[type="submit"] {
   }
 
   .epic-btn {
-    background: rgb(199, 0, 107);
-    background: linear-gradient(
-      18deg,
-      rgb(199, 0, 107) 0%,
-      rgb(14, 0, 115) 100%
-    );
-    border: 1px solid;
-    padding: 5px 10px;
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 600;
-    border-radius: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: white;
+  
+     background: rgb(0, 0, 0);
+  background: linear-gradient(18deg, rgb(0, 0, 0) 0%, rgb(55, 18, 0) 100%);
+  padding: 5px 30px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
   }
 
   .third-section p {
@@ -3403,20 +3399,16 @@ input[type="submit"] {
   }
 
   .epic-btn {
-    background: rgb(199, 0, 107);
-    background: linear-gradient(
-      18deg,
-      rgb(199, 0, 107) 0%,
-      rgb(14, 0, 115) 100%
-    );
-    padding: 5px 10px;
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 600;
-    border-radius: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: white;
+    background: rgb(0, 0, 0);
+  background: linear-gradient(18deg, rgb(0, 0, 0) 0%, rgb(55, 18, 0) 100%);
+  padding: 5px 30px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
   }
 
   .third-section p {

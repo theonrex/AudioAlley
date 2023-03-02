@@ -14,7 +14,8 @@ export default function SearchModal() {
         <div
           id="popup-modal"
           tabIndex={-1}
-          className=" fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
+          className="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full justify-center items-center"
+          suppressHydrationWarning={true}
         >
           <div className="relative w-full h-full max-w-md md:h-auto">
             <div className="relative bg-white rounded-lg shadow dark:bg-red-700">

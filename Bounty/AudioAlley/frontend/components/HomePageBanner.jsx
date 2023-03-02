@@ -79,12 +79,6 @@ function HomePageBanner() {
     }
   };
 
-  // const placeBid = () => {
-  //   if (typeof window !== "undefined") {
-  //     alert(" Function not availabe now. Try again later");
-  //   }
-  // };
-
   return (
     <div className="  first-section" id="Home" data-aos="fade-right">
       <div className="container rowX">

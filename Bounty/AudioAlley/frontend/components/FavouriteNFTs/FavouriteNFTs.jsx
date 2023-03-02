@@ -161,7 +161,6 @@ export const FavouriteNFTs = () => {
 
                   {!isConnected ? (
                     <button
-                      text="List NFT"
                       className="btn_fav_song_nft"
                       onClick={connectWallet}
                     >
