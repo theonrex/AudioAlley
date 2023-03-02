@@ -84,7 +84,7 @@ function HomePageBanner() {
       <div className="container rowX">
         <div className="col50 first-nft ">
           <h1 className="gather">
-            Explore NFTs artworks on our cutting-edge web3 audio
+            Explore NFTs artworks on our web3 audio
             <span> streaming platform. </span>{" "}
           </h1>
           <p>
