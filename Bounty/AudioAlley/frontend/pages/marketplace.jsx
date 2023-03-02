@@ -10,14 +10,35 @@ import {
 } from "../constants/index";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import PolygonImg from "../public/assets/polygon.png";
+import FtmLogo from "../public/assets/ftm.png";
 import { Address } from "wagmi";
 import { useAccount, useBalance } from "wagmi";
 import { useSigner } from "wagmi";
-import MusicPlayer from "../components/music/MusicData";
-import Demo from "../components/music/test";
 import Play from "../components/music/Play";
-import jsmediatags from "jsmediatags";
+
+function AudioPlayer({ src }) {
+  const [duration, setDuration] = useState({ minutes: 0, seconds: 0 });
+
+  function handleLoadedMetadata(event) {
+    const audio = event.target;
+    const durationInSeconds = Math.round(audio.duration);
+    const minutes = Math.floor(durationInSeconds / 60);
+    const seconds = durationInSeconds % 60;
+    setDuration({ minutes, seconds });
+  }
+
+  return (
+    <div>
+      <audio src={src} onLoadedMetadata={handleLoadedMetadata} />
+      <p>
+        {" "}
+        {`${duration.minutes.toString().padStart(2, "0")}:${duration.seconds
+          .toString()
+          .padStart(2, "0")}`}
+      </p>
+    </div>
+  );
+}
 
 const Marketplace = () => {
   const router = useRouter();
@@ -97,31 +118,14 @@ const Marketplace = () => {
     }
   }
 
-
-  useEffect(() => {
-    const audioFile =
-      "https://theonnfts.infura-ipfs.io/ipfs/QmYWHskuQmsNEnw8n8PXckoVi8Q3iW9VEowR2AzQ6KXmS4";
-    jsmediatags.read(audioFile, {
-      onSuccess: function (tags) {
-        const durationInSeconds = tags.tags.duration;
-        const durationInMinutes = durationInSeconds / 60;
-        setDuration(durationInMinutes);
-      },
-      onError: function (error) {
-        console.log(error);
-      },
-    });
-  }, []);
-
-
-  //import polygon current pricr from coingecko
+  //import ftm current price from coingecko
 
   const [usdPrice, setUsdPrice] = useState(null);
 
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=usd",
+      url: "https://api.coingecko.com/api/v3/simple/price?ids=fantom&vs_currencies=usd",
     };
 
     axios
@@ -133,13 +137,13 @@ const Marketplace = () => {
       .catch((error) => {
         console.error(error);
       });
-    // console.log(usdPrice.matic-network.usd)
+    // console.log(usdPrice.fantom-network.usd)
   }, []);
   const favNfts = nfts;
 
   if (favNfts != undefined) {
     const UsdPrice = usdPrice
-      ? ["matic-network"].usd * nfts.price
+      ? ["fantom-network"].usd * nfts.price
       : console.log(favNfts);
   }
 
@@ -166,82 +170,78 @@ const Marketplace = () => {
       <div className="nft_marketpace container">
         <header>Market Place</header>
         <div className=" ">
-          <table></table>
-          {nfts.length && loadingState ? (
-            nfts?.map((nft, i) => (
-              <table
-                key={i}
-                className="   nft_home_img_width marketplace_nft_text"
-              >
-                <thead>
-                  <tr>
-                    <th className="hashtag">#</th>
-                    <th className="th_song_title">Title</th>
-                    <th className="th_song_Category">Category</th>
-                    <th className="th_song_Rating"> Rating</th>
-                    <th className="th_song_duration">Duration</th>
-                    <th className="th_song_price">Price / FTM</th>
-                  </tr>
-                </thead>
+          <table className="   nft_home_img_width marketplace_nft_text">
+            <thead>
+              <tr>
+                <th className="hashtag">#</th>
+                <th className="th_song_title">Title</th>
+                <th className="th_song_Category">Category</th>
+                <th className="th_song_Rating"> Rating</th>
+                <th className="th_song_duration">Duration</th>
+                <th className="th_song_price">Price / FTM</th>
+              </tr>
+            </thead>
+            <tbody>
+              {nfts.map((song) => (
+                <tr key={song.itemId}>
+                  <td>
+                    <span className="sondId_play">
+                      {song.itemId}
+                      <Play />
+                    </span>
+                  </td>
 
-                <tbody>
-                  {nfts.map((song) => (
-                    <tr key={song.itemId}>
-                      <td>
-                        <span className="sondId_play">
-                          {song.itemId}
-                          <Demo />{" "}
-                        </span>
-                      </td>
-
-                      <td>
-                        <div className="song_title">
-                          {song.image ? (
-                            <img src={song.image} alt="" className="" />
-                          ) : (
-                            "null"
-                          )}
-                          <div>
-                            <h5>{song.name ? song.name : "null"} </h5>
-                            <h6>{song.name ? song.name : "null"}</h6>{" "}
-                          </div>
-                        </div>
-                      </td>
-                      <td className="th_song_Category">{song.category}</td>
-                      <td className="th_song_Rating">{song.rating}</td>
-                      <td className="th_song_duration">{duration}</td>
-                      <td>
-                        {" "}
-                        {address != song?.seller ? (
-                          <button
-                            className="td_marketplace_btn_buy"
-                            onClick={() => {
-                              router.push(`/${song.itemId}`);
-                            }}
-                          >
-                            Buy / {song.price}
-                          </button>
-                        ) : (
-                          <button
-                            className="td_marketplace_btn_buy"
-                            onClick={() => {
-                              router.push(`/${song.itemId}`);
-                            }}
-                          >
-                            View
-                          </button>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-                {/* <p className="nft_marketpace_Price">
-                  <img src={PolygonImg.src} className="fantom" alt="polygon" />{" "}
+                  <td>
+                    <div className="song_title">
+                      {song.image ? (
+                        <img src={song.image} alt="" className="" />
+                      ) : (
+                        "null"
+                      )}
+                      <div>
+                        <h5>{song.name ? song.name : "null"} </h5>
+                        <h6>{song.name ? song.name : "null"}</h6>{" "}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="th_song_Category">{song.category}</td>
+                  <td className="th_song_Rating">{song.rating}</td>
+                  <td className="th_song_duration">
+                    {" "}
+                    <AudioPlayer src={song.file} />
+                  </td>
+                  <td>
+                    {" "}
+                    {address != song?.seller ? (
+                      <button
+                        className="td_marketplace_btn_buy"
+                        onClick={() => {
+                          router.push(`/${song.itemId}`);
+                        }}
+                      >
+                        Buy / {song.price}
+                      </button>
+                    ) : (
+                      <button
+                        className="td_marketplace_btn_buy"
+                        onClick={() => {
+                          router.push(`/profile/${song.itemId}`);
+                        }}
+                      >
+                        View
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+            {/* <p className="nft_marketpace_Price">
+                  <img src={FtmLogo.src} className="fantom" alt="ftm" />{" "}
                   {Number(nft?.price).toFixed(2)} FTM
                 </p> */}
-              </table>
-            ))
-          ) : (
+          </table>
+          <table></table>
+          {nfts.length && loadingState ? null : (
             <div className=" No_purchase ">
               No purchase found.
               <br />

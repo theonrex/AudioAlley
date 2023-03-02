@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Contract, providers, utils } from "ethers";
 import axios from "axios";
-import PolygonImg from "../../public/assets/polygon.png";
 import {
   NFT_MARKETPLACE_ADDRESS,
   NFT_CONTRACT_ABI,
@@ -11,7 +10,6 @@ import {
 } from "../../constants/index";
 import { useAccount, useConnect, useSigner } from "wagmi";
 import Image from "next/image";
-
 export const FavouriteNFTs = () => {
   //wagmi signer
   const { data: signer, isError, isLoading } = useSigner();
@@ -35,7 +33,7 @@ export const FavouriteNFTs = () => {
   async function loadNFTs() {
     /* create a generic provider and query for unsold market items */
     const provider = new providers.JsonRpcProvider(
-      "https://rpc.testnet.fantom.network"
+      "https://rpc.ankr.com/fantom_testnet"
     );
 
     const nftContract = new Contract(
@@ -71,7 +69,7 @@ export const FavouriteNFTs = () => {
     setNfts(items);
     setLoadingState("loaded");
   }
-  const favNft = nfts[2 || 5];
+  const favNft = nfts[0 || 1 || 3 || 7 || 6 || 5];
 
   if (favNft != undefined) {
     // console.log(favNft.price);
@@ -102,73 +100,59 @@ export const FavouriteNFTs = () => {
   };
   // const usd = favNft.price * favNft.price;
 
-  //import polygon current pricr from coingecko
+  //import FANTOMgon current pricr from coingecko
 
   const [usdPrice, setUsdPrice] = useState(null);
 
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=usd",
+      url: "https://api.coingecko.com/api/v3/simple/price?ids=fantom&vs_currencies=usd",
     };
 
     axios
       .request(options)
       .then((response) => {
-        // console.log(response.data);
         setUsdPrice(response.data);
       })
       .catch((error) => {
         console.error(error);
       });
-    // console.log(usdPrice.matic-network.usd)
   }, []);
   const favNfts = nfts[3];
 
   if (favNfts != undefined) {
-    const UsdPrice = usdPrice["matic-network"].usd * 3;
+    const UsdPrice = usdPrice["fantom"].usd * 3;
 
     console.log(UsdPrice);
   }
 
-  // console.log(usdPrice.matic-network.usd)
+  // console.log(usdPrice.fantom.usd)
 
   return (
     <>
       <div className="second-section">
         <div className=" container" id="Explore" data-aos="zoom-in">
           <div className="row">
-            <div className="col50 fav">
-              <h1>
-                Choose Your Favorite <br />
-                Art. If you want!
-              </h1>
-            </div>
-         
+            <div className="col50 fav"></div>
           </div>
           <div className="rowX nft-m">
             <div>
               <div className="gradient-box col50  ">
                 <div className="meta-nft col50">
-                  <img
-                    src="https://img.freepik.com/free-psd/book-hardcover-mockup_125540-382.jpg?w=740&t=st=1676801357~exp=1676801957~hmac=2ad0d268ebc7a178cb11511c392cdbd199008fa4fda911c4adee3b5368c4c50d"
-                    alt="Nft Image"
-                  />
+                  <img src={favNft?.image} alt="Nft Image" />
                 </div>
                 <div className="meta-text col50">
                   <p>{favNft?.name}</p>
                   <h3>ID #{favNft?.tokenId}</h3>
 
-                  <p>
-                    <img src={PolygonImg.src} className="polygon" />
-                    {Number(favNft?.price).toFixed(3)} MATIC
-                  </p>
+                  <p>{Number(favNft?.price).toFixed(3)} FTM</p>
 
                   <p className="nft_price_in_usd">
                     <span>
                       {" "}
                       {usdPrice && favNft
-                        ? Number(usdPrice["matic-network"].usd).toFixed(2) *
+                        ? Number(usdPrice["fantom"].usd).toFixed(2) *
                           Number(favNft.price).toFixed(2)
                         : null}{" "}
                       USD{" "}
@@ -178,14 +162,14 @@ export const FavouriteNFTs = () => {
                   {!isConnected ? (
                     <button
                       text="List NFT"
-                      className="btn_submit_nft"
+                      className="btn_fav_song_nft"
                       onClick={connectWallet}
                     >
                       Buy
                     </button>
                   ) : (
                     <button
-                      className="marketplace_btn_buy"
+                      className="btn_fav_song_nft"
                       onClick={() =>
                         buyNFT(favNft?.price.toString(), favNft.tokenId)
                       }
@@ -196,14 +180,19 @@ export const FavouriteNFTs = () => {
                 </div>
               </div>
             </div>
-            <div className="col50">
+            <div className="col50 fav">
+              <h1>
+                Choose Your Favorite <br />
+                Art. If you want!
+              </h1>
               <h2>
                 Begin with the simplest and most secure stage to purchase <br />
                 and exchange advanced workmanship and NFTs
               </h2>
-              Penpal books apires to recognize and reflect diverse voices by
-              taking penpal stories to published book and unto bookshelves
-              around the world. Penpal books works with ......
+              <h2>
+                Audio Alley apires to recognize and reflect diverse voices by
+                taking songs to the world and unto the soul around the world.
+              </h2>
             </div>
           </div>
         </div>

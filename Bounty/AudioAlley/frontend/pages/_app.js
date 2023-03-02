@@ -30,16 +30,16 @@ const FantomiChain = {
   network: "FANTOM",
   nativeCurrency: {
     decimals: 18,
-    name: "MATIC",
-    symbol: "MATIC",
+    name: "FANTOM",
+    symbol: "FTM",
   },
   rpcUrls: {
     default: "https://rpc.ankr.com/fantom_testnet",
   },
   blockExplorers: {
     default: {
-      name: "MATIC",
-      url: "https://mumbai.polygonscan.com/",
+      name: "FANTOM",
+      url: "https://testnet.ftmscan.com",
     },
   },
   testnet: true,
@@ -77,10 +77,10 @@ function MyApp({ Component, pageProps }) {
           <Head>
             <meta
               name="description"
-              content="Nft Marketplace built on polygon"
+              content="Audio Alley is the ultimate platform for music artists to showcase and sell their songs to a global audience. Upload your tracks and start earning today!"
             />
 
-            <link rel="shortcut icon" href="/assets/theonrexL.png" />
+            <link rel="shortcut icon" href="/assets/music logo.png" />
             <title> Audio Alley</title>
             <link
               rel="stylesheet"

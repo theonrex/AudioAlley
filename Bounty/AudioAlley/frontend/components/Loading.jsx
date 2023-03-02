@@ -15,8 +15,8 @@ const Loading = ({ type = "dots" }) => (
           radius="9"
           color="#fd1bf5fa"
           ariaLabel="three-dots-loading"
-          wrapperStyle
-          wrapperClass
+          wrapperStyle=""
+          wrapperClassName=""
         />
       ) : (
         <Oval
@@ -24,13 +24,14 @@ const Loading = ({ type = "dots" }) => (
           width="100"
           radius="9"
           color="#48bb78"
-          ariaLabel="three-dots-loading"
-          wrapperStyle
-          wrapperClass
+          ariaLabel="oval-loading"
+          wrapperStyle=""
+          wrapperClassName=""
         />
       )}
     </div>
   </div>
 );
+
 
 export default Loading;

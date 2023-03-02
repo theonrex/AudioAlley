@@ -1,6 +1,6 @@
 import React from "react";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import Theme from "../Theme";
+import Link from "next/link";
+import SearchModal from "./SearchModal";
 export default function Sidebar() {
   return (
     <aside id="logo-sidebar" className="" aria-label="Sidebar">
@@ -22,23 +22,17 @@ export default function Sidebar() {
             </a>
           </li>
           <li>
-            <a href="/createnft" className=" nav_item">
+            <a href="/upload" className=" nav_item">
               <span className="nav_span"> Upload Music</span>
             </a>
           </li>
-
           <li>
-            <a href="#" className="nav_item">
-              <span className="nav_span">
-                {" "}
-                <Theme />
-              </span>
-            </a>
+            <SearchModal /> 
           </li>
 
-          <li>
+          {/* <li>
             <a href="#" className="nav_item"></a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </aside>

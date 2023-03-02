@@ -7,7 +7,7 @@ export default function mylisteditems() {
   return (
     <MainLayout>
       <div className="container mylisteditems">
-        <header>Your Listed NFTs</header>
+        <header>Your Songs</header>
       </div>
       <SellerItems />
     </MainLayout>

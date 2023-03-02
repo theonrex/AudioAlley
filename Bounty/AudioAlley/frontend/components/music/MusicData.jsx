@@ -42,6 +42,8 @@ export async function MusicData() {
           image: meta.data.image,
           file: meta.data.file,
           name: meta.data.name,
+          artistName: meta?.data?.artistName,
+
           description: meta.data.description,
           category: meta.data.category,
           storyData: meta.data.storyData,

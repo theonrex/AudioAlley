@@ -16,6 +16,7 @@ module.exports = {
       {
         // matching all API routes
         source: "/api/(.*)",
+
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
@@ -35,6 +36,9 @@ module.exports = {
       },
     ];
   },
+  images: {
+    domains: ["theonnfts.infura-ipfs.io"],
+  },
   async rewrites() {
     return [
       {
@@ -43,5 +47,6 @@ module.exports = {
       },
     ];
   },
+  dangerouslyAllowedAttributes: ["data-dropdown-toggle"],
 };
 

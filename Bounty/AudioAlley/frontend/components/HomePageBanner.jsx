@@ -9,15 +9,11 @@ import {
 import axios from "axios";
 import { useRouter } from "next/router";
 import { ethers } from "ethers";
-import CarouselimgeOne from "../public/assets/headphones.jpg";
-import CarouselimageTwo from "../public/assets/cta-2-left.png";
 import { useAccount, useConnect, useSigner, useProvider } from "wagmi";
 import Image from "next/image";
 
-
 function HomePageBanner() {
   const [nfts, setNfts] = useState([]);
-  const [isPurchasing, setIsPurchasing] = useState(false);
 
   const [loadingState, setLoadingState] = useState("not-loaded");
 
@@ -25,15 +21,13 @@ function HomePageBanner() {
   const { data: signer, isError } = useSigner();
   const { connector: activeConnector, isConnected } = useAccount();
 
-  // const provider = useProvider();
-
-  // useEffect(() => {
-  //   loadNFTs();
-  // }, []);
+  useEffect(() => {
+    loadNFTs();
+  }, []);
   async function loadNFTs() {
     /* create a generic provider and query for unsold market items */
     const provider = new providers.JsonRpcProvider(
-      "https://rpc.testnet.fantom.network"
+      "https://rpc.ankr.com/fantom_testnet"
     );
 
     const nftContract = new Contract(
@@ -70,38 +64,12 @@ function HomePageBanner() {
     setLoadingState("loaded");
   }
 
-  console.log(nfts);
-
-  const homeNft = nfts[1 || 3 || 5];
+  const homeNft = nfts[1 || 2 || 3];
 
   if (homeNft != undefined) {
-    console.log(homeNft);
+    null;
   }
   // console.log(nfts);
-
-  const buyNFT = async (price, tokenId) => {
-    setIsPurchasing(true);
-
-    const nftMarketPlaceContract = new Contract(
-      NFT_MARKETPLACE_ADDRESS,
-      NFT_MARKETPLACE_ABI,
-      signer
-    );
-
-    let convertedPrice = utils.parseUnits(price.toString(), "ether");
-
-    const transaction = await nftMarketPlaceContract.buyItem(
-      NFT_CONTRACT_ADDRESS,
-      tokenId,
-      {
-        value: convertedPrice,
-      }
-    );
-    loadNFTs();
-    await transaction.wait();
-    await router.push("/my-items");
-    setIsPurchasing(false);
-  };
 
   // connect wallet alert
 
@@ -117,19 +85,19 @@ function HomePageBanner() {
   //   }
   // };
 
-
-
   return (
     <div className="  first-section" id="Home" data-aos="fade-right">
-  
       <div className="container rowX">
         <div className="col50 first-nft ">
           <h1 className="gather">
-            Discover Digital Artworks & Collect <span>Best NFTs </span>{" "}
+            Explore NFTs artworks on our cutting-edge web3 audio
+            <span> streaming platform. </span>{" "}
           </h1>
           <p>
-            Get Started with the easiest and most secure platform to buy and
-            trade digital ART and NFT&apos;s
+            Welcome to Audio Alley, the premier platform for music artists to
+            showcase and sell their songs to a global audience. With our
+            easy-to-use interface and robust features, you'll have everything
+            you need to get your music out there and start earning money today.
           </p>
           <div className="explore">
             <button className="buy-btn ">
@@ -157,9 +125,9 @@ function HomePageBanner() {
                 className="homenft_img"
               />
             </div>
-            <div className="ending">
+            {/* <div className="ending">
               <h5> {homeNft?.name}</h5>
-              <h5> Hightest Bid</h5>
+              <h5>Song Price </h5>
             </div>
             <div className="timer">
               <ul>
@@ -168,11 +136,11 @@ function HomePageBanner() {
                 <li id="minutes" />
                 <li id="seconds" />
               </ul>
-              <p>{homeNft?.price} MATIC</p>
+              <p>{homeNft?.price} FTM</p>
             </div>
             <div className="bid-btn">
               <div></div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

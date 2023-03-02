@@ -9,20 +9,12 @@ import About from "../components/About";
 export default function Home() {
   return (
     <div>
-  
-   
-<div className="rowx">
-
-
-
-</div>
-
+      <div className="rowx"></div>
 
       <MainLayout>
         <Homebanner />
-      <FavouriteNFTs />
-      <HomeMarketplace />
-      <About />
+        <FavouriteNFTs />
+        <HomeMarketplace />
       </MainLayout>
     </div>
   );

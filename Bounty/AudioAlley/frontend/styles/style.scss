@@ -1,7 +1,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-$base-color: #ffbf00;
+$base-color: #f4a700;
 $bgcolor: #0a0f1a;
 $gray: rgb(96, 96, 96);
 $subbase-color: #ff6404;
@@ -24,7 +24,7 @@ $subbase-color: #ff6404;
 
 /* Background styles */
 body {
-  background-color: #0a0f1a;
+  background-color: #020204;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -37,10 +37,55 @@ button {
 .No_purchase_History {
   color: white;
 }
+.No_purchase_History a {
+  text-decoration: underline;
+  color: $base-color;
+}
+
+.No_purchase_History a:hover {
+  color: $base-color;
+}
 
 button {
   outline: none !important;
   box-shadow: none !important;
+}
+.search_bar img {
+  width: 30px;
+}
+.search_result_flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5em 0;
+}
+.search_result_flex img {
+  width: 15px;
+  height: 15px;
+  object-fit: cover;
+}
+.search_result_flex img,
+.search_result_flex h1 {
+  margin: 0 0.5em 0 0;
+}
+.pop_up_modal_cancel {
+  margin-bottom: 5em !important;
+}
+.pop_up_modal_cancel:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.pop_up_modaal {
+  background-color: black !important;
+  color: white;
+}
+
+.inset-0 {
+  bottom: unset !important;
+  top: unset !important;
+}
+.search_result {
+  color: white;
 }
 
 .navbar-toggler:focus {
@@ -53,6 +98,9 @@ button {
   display: flex;
 }
 //nft_uploaded_image
+.nft_uploaded_image p {
+  color: $base-color;
+}
 .nft_uploaded_image {
   margin: auto;
   display: flex;
@@ -325,8 +373,10 @@ a {
 }
 
 .col29 {
+  width: 30%;
   float: left;
   padding: 10px;
+  margin: auto;
 }
 
 .col30 {
@@ -337,6 +387,11 @@ a {
 .col33 {
   float: left;
   width: 30.8%;
+  padding: 10px;
+}
+.col45 {
+  float: left;
+  width: 45.8%;
   padding: 10px;
 }
 
@@ -522,32 +577,61 @@ a {
 // }
 .song_title {
   font-size: 0.8em;
-  font-weight: 600;
-  letter-spacing: 0.3em;
+  font-weight: 500;
   color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 }
-.song_title img{
+.song_title img {
   margin-right: 0.5em;
 }
-.song_title h5{
-text-transform: capitalize;
-
+.song_title h5 {
+  text-transform: capitalize;
 }
-.song_title h6{
-text-transform: capitalize;
-font-size: 0.6em;
+.song_title h6 {
+  text-transform: capitalize;
+  font-size: 0.8em;
+}
+.col45 .gradient-box {
+  background: none !important;
 }
 
 .nft_home_img_width img {
   padding: 0.3em;
   background-color: #0a0f1a18;
   width: 3em;
+  height: 3em;
+  object-fit: cover;
+}
+.homepage_market {
+  text-align: left;
+  margin: 0.6em;
+  box-shadow: 0px 0px 48px -3px rgba(235, 234, 234, 0.1);
+}
+.homepage_market h3 {
+  color: rgb(255, 255, 255);
+  font-size: 1em;
+  text-transform: capitalize;
 }
 
+.homepage_market h3 span {
+  color: rgb(255, 255, 255);
+  text-transform: capitalize;
+  padding-left: 0.3em;
+  font-weight: 400;
+}
+
+.homepage_market .nft_home_img_width img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin: auto;
+}
+.nft-mg {
+  width: 100%;
+}
 .gradient-box h1 {
   text-decoration: underline;
 }
@@ -567,7 +651,7 @@ font-size: 0.6em;
   height: 100%;
   $border: 2px;
   color: #fff;
-  background: #ffbf00;
+  background: linear-gradient(to right, #ffbf00, #ff6404);
   background-clip: padding-box;
   /* !importanté */
   border: solid $border transparent;
@@ -632,9 +716,14 @@ li {
 .ending {
   color: #fff;
   display: flex;
+  text-transform: capitalize;
   flex-wrap: inherit;
   align-items: center;
   justify-content: space-between;
+}
+.ending h5 {
+  color: rgb(0, 0, 0);
+  font-size: 1.4em;
 }
 
 .purchase-btn {
@@ -649,14 +738,13 @@ li {
   border: 2px solid var(--purple);
   background: linear-gradient(
     to right,
-    rgba(253, 27, 245, 0.219) 1%,
-    transparent 40%,
-    transparent 60%,
-    rgba(27, 253, 156, 0.1) 100%
+    $base-color 1%,
+    $subbase-color 40%,
+    $base-color 60%,
+    $subbase-color 100%
   );
   color: var(--green);
-  box-shadow: inset 0 0 10px rgba(27, 53, 253, 0.4),
-    0 0 9px 3px rgba(27, 253, 156, 0.1);
+  box-shadow: inset 0 0 10px $base-color, 0 0 9px 3px $subbase-color;
 }
 
 .purchase-btn:hover {
@@ -812,6 +900,7 @@ li {
   width: 50%;
   color: #fff;
   text-align: left;
+  text-transform: capitalize;
 }
 
 .meta-text p:first-child {
@@ -832,7 +921,7 @@ li {
   color: #fff;
 }
 
-.eth {
+.ftm {
   width: 27px !important;
 }
 
@@ -851,6 +940,20 @@ li {
 
 .second-section {
   padding-top: 54px;
+}
+.second-section h1{
+      background: #ffbf00;
+    background: linear-gradient(to right, #ffbf00, #731b00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    padding-bottom: 0.4em;
+}
+.second-section h2 {
+  margin: auto;
+
+  color: white;
 }
 .nft-m .col50 .polygon {
   width: 20px;
@@ -881,7 +984,7 @@ li {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .nft-img img {
@@ -901,7 +1004,7 @@ li {
 }
 // .nft-img,
 // .nft-img h3,
-// .nft-img .eth-sale {
+// .nft-img .ftm-sale {
 //   padding-left: 1em !important;
 // }
 
@@ -937,13 +1040,8 @@ li {
 }
 
 .epic-btn {
-  background: rgb(199, 0, 107);
-  background: linear-gradient(
-    18deg,
-    rgba(199, 0, 107, 1) 0%,
-    rgba(14, 0, 115, 1) 100%
-  );
-  border: 1px solid;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(18deg, rgb(0, 0, 0) 0%, rgb(55, 18, 0) 100%);
   padding: 5px 30px;
   display: inline-block;
   font-size: 15px;
@@ -954,21 +1052,21 @@ li {
   color: white;
 }
 
-.eth-sale {
+.ftm-sale {
   display: flex;
-  padding-top: 18px;
-  font-size: 0.6em;
+  color: black;
+  font-size: 1em;
   font-weight: 600;
   font-weight: normal;
   justify-content: space-between;
 }
 
-.eth-sale div > img {
+.ftm-sale div > img {
   width: 30px !important;
   border: none;
 }
 
-.eth-sale-icon {
+.ftm-sale-icon {
   background-color: #fcfcfc30;
   // padding: 20px;
   justify-content: center;
@@ -977,7 +1075,7 @@ li {
   border-radius: 50%;
 }
 
-.eth-sale-icon svg {
+.ftm-sale-icon svg {
   // padding: 20px;
   font-size: 16px;
   justify-content: center;
@@ -987,7 +1085,7 @@ li {
   border-radius: 50%;
   color: white;
 }
-.eth-sale img {
+.ftm-sale img {
   width: 20px;
 }
 
@@ -1091,6 +1189,7 @@ li {
   color: white;
 }
 .mylisteditems header {
+  padding-top: 1em;
   font-size: 2em;
   font-weight: 600;
   text-align: left;
@@ -1231,11 +1330,13 @@ li {
   width: 30px;
 }
 //marketplace
-table{
-    width: 100%;
-
+.td_marketplace_btn_buy {
+  padding: 0.5em 1em;
 }
-.togglePlayPause img{
+table {
+  width: 100%;
+}
+.togglePlayPause img {
   width: 30px;
 }
 table,
@@ -1244,7 +1345,7 @@ th,
 td {
   color: white;
 }
-td{
+td {
   padding-top: 2em;
 }
 th {
@@ -1275,13 +1376,15 @@ th {
 }
 
 .sondId_play {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 .No_purchase,
 .No_purchase a {
+  margin-top: 2em !important;
+
   color: white;
 }
 .imageBD {
@@ -1494,8 +1597,6 @@ pre {
   }
 }
 
-
-
 @media screen and (max-width: 990px) {
   .Trade_wallet .col25 {
     width: 40%;
@@ -1519,7 +1620,7 @@ pre {
 }
 
 @media screen and (max-width: 800px) {
-  .th_song_Rating{
+  .th_song_Rating {
     display: none;
   }
   .navbar-brand img {
@@ -1694,37 +1795,96 @@ pre {
   border-radius: 2px !important;
 }
 //listitem
-.story_preview {
+.ql-editor {
+  color: white;
+}
+.ql-snow .ql-stroke {
+  stroke: #fff !important;
+}
+
+.ql-snow .ql-picker {
+  color: $base-color !important;
+}
+.ql-snow .ql-picker:hover {
+  color: $base-color !important;
+}
+.handlePriceError {
+  color: red;
+}
+.song_preview {
   margin-top: 2em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.story_left {
+.song_left {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   color: white;
+  text-align: left;
+}
+[type="text"],
+[type="email"],
+[type="url"],
+[type="password"],
+[type="number"],
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
+  appearance: none;
+  background-color: #140500 !important;
+  border-color: $base-color !important;
+  border-width: 1px;
+  border-radius: 0px;
+  color: white;
+  padding-top: 0.5rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-shadow: 0 0 #0000;
 }
 
-.story_left img {
+select {
+  color: white;
+  background-color: black;
+}
+
+select option:checked {
+  color: black;
+  background-color: white;
+}
+
+.song_left img {
   filter: invert(1);
 }
-.story_left h5 {
+.song_left h5 {
   font-size: 1em;
   color: white;
 }
-.story_left h2 {
+.song_left h2 {
   font-size: 1.5em;
   font-weight: 400;
   color: yellow;
 }
-.story_btn button {
+.song_btn button {
   margin: 0 0.5em;
 }
 
 //form
+form {
+  width: 100%;
+}
 .create_item header {
   padding-top: 2em;
   font-size: 3em;
@@ -1787,7 +1947,7 @@ input[type="number"],
 textarea,
 select,
 .number {
-  border-radius: 0.4em;
+  border-radius: 0.4em !important;
   box-sizing: border-box;
   padding: 12px 20px;
 }
@@ -1795,30 +1955,53 @@ select,
 input[type="text"],
 input[type="number"],
 select,
-.number,
-.btn_submit_nft {
+.number {
   width: 100%;
   display: inline-block;
+}
+.btn_fav_song_nft {
+  width: 100%;
+  margin: 1em auto;
+  font-size: 15px;
+  padding: 0.7em 2.7em !important;
+  letter-spacing: 0.06em;
+  overflow: hidden;
+  transition: all 0.3s;
+  line-height: 1.4em;
+  display: block;
+  border: 2px solid var(--orange);
+  background: black !important;
+  color: white;
+  box-shadow: inset 0 0 10px rgb(253 174 27 / 40%),
+    0 0 9px 3px rgb(27 253 156 / 10%) !important;
+}
+
+.btn_submit_nft {
+  width: 50%;
+
+  display: block;
+  margin: 2em auto;
 }
 
 .btn_submit_nft {
   font-size: 15px;
   padding: 0.7em 2.7em !important;
   letter-spacing: 0.06em;
-  position: relative;
   overflow: hidden;
   transition: all 0.3s;
   line-height: 1.4em;
+
+  display: block;
   border: 2px solid var(--purple);
   background: linear-gradient(
     to right,
-    rgba(253, 27, 245, 0.219) 1%,
-    transparent 40%,
-    transparent 60%,
-    rgba(27, 253, 156, 0.1) 100%
+    $base-color 1%,
+    $subbase-color 40%,
+    $base-color 60%,
+    $subbase-color 100%
   );
   color: white;
-  box-shadow: inset 0 0 10px rgba(27, 53, 253, 0.4),
+  box-shadow: inset 0 0 10px rgba(253, 174, 27, 0.4),
     0 0 9px 3px rgba(27, 253, 156, 0.1) !important;
 }
 
@@ -1852,6 +2035,7 @@ input[type="file"] {
 }
 
 input {
+  text-transform: capitalize;
   margin: 1em 0;
 }
 .bi .bi-cloud-plus-fill {
@@ -1889,6 +2073,7 @@ input::after,
 input:active,
 select:focus,
 textarea:focus {
+  background-color: #090009 !important;
 }
 
 .custom-file-upload {
@@ -1961,7 +2146,10 @@ input[type="submit"] {
 }
 
 .nft_marketpace img {
-  border-radius: 50%;
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 5%;
 }
 
 //dashboard
@@ -2067,6 +2255,9 @@ input[type="submit"] {
 }
 
 //resell_nft
+.resell_profile_nft {
+  margin-top: 2em;
+}
 .resell_nft {
   display: flex;
   flex-direction: column;
@@ -2105,6 +2296,9 @@ input[type="submit"] {
   border: 1px solid rgba(255, 255, 255, 0.125);
   padding: 1em 2em;
 }
+.sell_song .purchase-btn {
+  margin-top: 1.5em;
+}
 
 .resell_btn:hover {
   backdrop-filter: blur(19px) saturate(200%);
@@ -2123,13 +2317,15 @@ input[type="submit"] {
   font-style: italic;
 }
 .nftinfoId {
-  background-color: rgb(36, 0, 59);
   border-radius: 1em;
 }
 .nftinfoId img {
-  width: 100%;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
 }
 .nft_details_ID {
+  padding-top: 5em;
   text-align: left;
 }
 .nft_details_ID {
@@ -2137,20 +2333,30 @@ input[type="submit"] {
 }
 
 .nft_details_ID h1 {
-  font-size: 2em;
+  font-size: 3em;
+  line-height: normal;
+  letter-spacing: 0;
+  font-weight: 800;
   text-transform: capitalize;
 }
 
 .nft_info_price_id {
   font-weight: 700;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 .nft_details_ID h1,
 .nft_details_ID p,
 .nft_details_ID h5 {
   text-transform: uppercase;
-  padding-bottom: 0.4em !important;
+  padding-bottom: 0.5m !important;
 }
+.subscribe_btn {
+  padding-top: 1em;
+}
+.subscribe_btn button {
+  margin-top: 0.7em !important;
+}
+
 .nft_details_ID span {
   color: #6300ed;
 }
@@ -2162,29 +2368,82 @@ input[type="submit"] {
   color: white;
   padding: 0.5em 0;
 }
-
+.subscribe_btn button {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.buy_song_btn {
+  margin-top: 1em;
+  padding: 1em 3em;
+  color: white !important;
+  border: 2px solid var(--orange);
+  background: linear-gradient(
+    to right,
+    #f4a700 1%,
+    #ff6404 40%,
+    #ff6404 60%,
+    #f4a700 100%
+  ) !important;
+}
 .current_price_id {
-  margin-bottom: 1em;
+  color: black;
+  width: 80%;
+  margin: 1em auto;
   padding: 1em;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(255, 255, 255, 0.89);
+  box-shadow: 0 8px 32px 0 rgba(15, 17, 37, 0.37);
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.nft_info_price_id span {
-  font-size: 17px;
-  opacity: 0.8;
-  color: #7b3fe4;
+.ql-editor {
+  color: black !important;
 }
+
+.nft_info_price_id span {
+  padding-left: 0.5em;
+  font-size: 15px;
+  color: $base-color;
+}
+
 .nft_id_buy_btn {
   margin-top: 1em;
   padding: 1em 3em;
 }
 .nft_tag img {
   width: 60px;
+}
+
+//music
+.audio-lists-panel-content .audio-item.playing,
+.audio-lists-panel-content .audio-item.playing svg,
+.audio-lists-panel-content .audio-item.playing,
+.audio-lists-panel-content .audio-item.playing svg:focus,
+.audio-lists-panel-content .audio-item.playing,
+.audio-lists-panel-content .audio-item.playing svg:active {
+  color: $base-color;
+}
+.react-jinke-music-player-main
+  .music-player-panel
+  .panel-content
+  .rc-slider-handle,
+.react-jinke-music-player-main
+  .music-player-panel
+  .panel-content
+  .rc-slider-track {
+  background-color: $base-color;
+}
+.hide-panel {
+  display: none !important;
+}
+.audio-lists-panel-header-delete-btn,
+.player-delete {
+  display: none !important;
 }
 
 //id_nft_bg{
@@ -2279,9 +2538,43 @@ input[type="submit"] {
   text-transform: uppercase;
   cursor: pointer;
 }
+.theme-switch {
+  display: none !important;
+}
+[data-rk] .ju367vbf {
+  background: black !important;
+}
 
 //mobile
 @media screen and (max-width: 1200px) {
+  .meta-text {
+    font-size: 1.5em;
+  }
+  .meta-text p,
+  .meta-text h3 {
+    color: black !important;
+
+    font-size: 1.5em !important;
+  }
+  .homepage_market .nft_home_img_width img {
+    width: 500px;
+    margin: auto;
+    height: 500px;
+  }
+
+  .homepage_market .nft_home_img_width img,
+  .nft_home_col29_text {
+    width: 500px;
+
+    margin: auto;
+  }
+  .col45 .nft_home_img_width {
+    width: unset;
+    margin: 0;
+  }
+  .nft_details_ID {
+    padding-top: 0.5em;
+  }
   .gather {
     font-size: 4em;
   }
@@ -2291,27 +2584,52 @@ input[type="submit"] {
     padding-bottom: 0.9em !important;
     font-size: 1.5em;
   }
+
+  .col29 {
+    width: 100%;
+  }
+  .ending h5 {
+    color: #020204;
+    font-size: 1em;
+  }
 }
 @media screen and (max-width: 1000px) {
+  .homepage_market h3 {
+    font-size: 5vw;
+  }
+  .container {
+    margin: auto;
+  }
+  .nft_details_ID {
+    padding-top: 0.5em;
+  }
+  // .nft_details_ID{
+  //   font
+  // }
+  .play-sounds {
+    display: none !important;
+  }
   .col25,
   .col20,
   .col30,
   .col40,
+  .col45,
   .col50,
   .col60,
-  .col23 {
+  .col23,
+  .col29 {
     width: 100%;
   }
-
+  .connect_id_wallet button {
+    margin-top: 1em !important;
+  }
   .nft_details_ID h1 {
-    font-size: 1.1em;
+    font-size: 2.1em;
+    line-height: normal;
     font-weight: 600;
-    padding-top: 0.7em;
+    padding-top: 0;
   }
 
-  .col29 {
-    width: 45%;
-  }
   .nav-item .purchase_btn {
     padding-left: 10px !important;
   }
@@ -2442,14 +2760,13 @@ input[type="submit"] {
   .gradient-box:before {
     content: "";
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 2px;
+    right: 1px;
     bottom: 0;
     left: 0;
     z-index: -1;
-    margin: -4px;
+    margin: -1px;
     border-radius: inherit;
-    background: linear-gradient(to right, rgb(60, 0, 255), rgb(242, 0, 255));
   }
 
   .nft-mg {
@@ -2511,7 +2828,7 @@ input[type="submit"] {
   .deneb_cta .cta_wrapper .cta_content p {
     text-align: center;
   }
-  .eth-sale {
+  .ftm-sale {
     font-size: 0.5em;
   }
 }
@@ -2522,8 +2839,12 @@ input[type="submit"] {
 }
 
 @media screen and (max-width: 853px) {
+  .homepage_market .nft_home_img_width img,
+  .nft_home_col29_text {
+    width: 100%;
+  }
   .container {
-    width: 95%;
+    width: 90%;
   }
 
   .create_and_sell .col30 img {
@@ -2551,10 +2872,14 @@ input[type="submit"] {
     margin: auto;
     text-align: left;
   }
-  .eth-sale {
+  .ftm-sale {
     font-size: 0.54em;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
   }
-  // .eth-sale div{
+  // .ftm-sale div{
   //   font-size: 0.7em;
   // }
   .col29 {
@@ -2572,8 +2897,29 @@ input[type="submit"] {
 }
 
 @media screen and (max-width: 698px) {
-    .th_song_duration,
-    .th_song_Category{
+  .homepage_market .nft_home_img_width img {
+    height: 300px;
+  }
+  .meta-text p:first-child {
+    padding: 0 !important;
+  }
+  .meta-text p,
+  .meta-text h3 {
+    padding: 0 !important;
+    color: black !important;
+
+    font-size: 1.1em !important;
+  }
+  .nft_price_in_usd {
+    font-size: 0.9em !important;
+  }
+  .td_marketplace_btn_buy {
+    padding: 0.5em 0.8em;
+    font-size: 1em;
+    font-weight: 100;
+  }
+  .th_song_duration,
+  .th_song_Category {
     display: none;
   }
   .col25,
@@ -2635,8 +2981,6 @@ input[type="submit"] {
   }
   .nft_home_img_width img {
     border-radius: 0.2em !important;
-
-    height: unset;
   }
   .nft_marketpace header {
     font-size: 2em;
@@ -2648,21 +2992,54 @@ input[type="submit"] {
   height: 40px;
 }
 //
-.player-content .reload-btn  { 
+.player-content .reload-btn {
   font-size: 17 !important;
 }
+
 @media screen and (max-width: 534px) {
-  .react-jinke-music-player-main .music-player-panel .panel-content .player-content .next-audio svg, .react-jinke-music-player-main .music-player-panel .panel-content .player-content .prev-audio svg {
+  .secure h1 {
+    font-size: 2em;
+  }
+  .secure h2 {
+    font-size: 4em;
+  }
+  .react-jinke-music-player-main
+    .music-player-panel
+    .panel-content
+    .player-content
+    .next-audio
+    svg,
+  .react-jinke-music-player-main
+    .music-player-panel
+    .panel-content
+    .player-content
+    .prev-audio
+    svg {
     font-size: 17px;
-}.react-jinke-music-player-main .music-player-panel .panel-content .player-content .play-btn svg {
+  }
+  .react-jinke-music-player-main
+    .music-player-panel
+    .panel-content
+    .player-content
+    .play-btn
+    svg {
     font-size: 17px;
-}
+  }
+  .react-jinke-music-player-main svg {
+    font-size: 17px !important;
+  }
   td {
     padding-top: 1em;
-}
+  }
   .dashboard .items_listed_text {
     font-size: 3em;
     font-weight: 700;
+  }
+  .audio-download svg,
+  .reload-btn,
+  .loop-btn {
+    width: 17px !important;
+    font-size: 7px !important;
   }
 
   .explore {
@@ -2757,6 +3134,20 @@ input[type="submit"] {
   }
 }
 @media screen and (max-width: 497px) {
+  .secure_ConnectButton {
+    padding: 0.7em 0;
+  }
+  .secure_ConnectButton .ju367v9c {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .secure_ConnectButton .iekbcc0 button {
+    text-align: center;
+  }
+  .secure {
+    margin: 0 !important;
+    padding: 0 1em 0;
+  }
   .col25,
   .col20,
   .col29,
@@ -2768,8 +3159,8 @@ input[type="submit"] {
     width: 100%;
   }
 
-  .iekbcc0{
-    font-size: 0.8em !important;
+  .iekbcc0 {
+    font-size: 4vw !important;
   }
   .forth-section header {
     font-size: 1.5em;
@@ -2841,11 +3232,10 @@ input[type="submit"] {
   }
 }
 
-
-
 @media screen and (max-width: 420px) {
-  .AudioAlley{
-display: none;  }
+  .AudioAlley {
+    display: none;
+  }
   input[type="file"] {
     font-size: 0.7em;
   }
@@ -2906,25 +3296,35 @@ display: none;  }
   }
 }
 
-@media screen and (max-width: 334px) {
-  th{
+@media screen and (max-width: 354px) {
+  .secure h1 {
+    font-size: 1em;
+  }
+  .secure h2 {
+    font-size: 3em;
+  }
+
+  .secure p {
     font-size: 0.7em;
   }
-  .sondId_play{
-    font-size:0.7em;
+  th {
+    font-size: 0.7em;
   }
-  .td_marketplace_btn_buy{
+  .sondId_play {
+    font-size: 0.7em;
+  }
+  .td_marketplace_btn_buy {
     padding: 0.5em 2em;
     font-size: 0.7em;
   }
-  .song_title h5{
+  .song_title h5 {
     font-size: 0.7em;
   }
   .dashboard .items_listed_text {
     font-size: 2em;
     font-weight: 700;
   }
-  .song_title h6{
+  .song_title h6 {
     font-size: 0.5em;
     font-weight: 100;
   }
@@ -3009,7 +3409,6 @@ display: none;  }
       rgb(199, 0, 107) 0%,
       rgb(14, 0, 115) 100%
     );
-    border: 1px solid;
     padding: 5px 10px;
     display: inline-block;
     font-size: 13px;
@@ -3042,6 +3441,18 @@ display: none;  }
 }
 
 @media screen and (max-width: 350px) {
+  [data-rk] ._9pm4ki3 {
+    bottom: 190px;
+    left: -190px;
+    padding: 10px;
+    right: -199px;
+    top: -200px;
+    transform: translateZ(0);
+    z-index: 2147483646;
+  }
+  .iekbcc0 {
+    font-size: 0.8em !important;
+  }
   .container {
     width: 100% !important;
     padding: 0 9px !important;
@@ -3058,13 +3469,18 @@ display: none;  }
     width: fit-content !important;
     height: fit-content !important;
   }
-  .ju367v8o {
-    padding: 0.1em !important;
+  .ju367v8o,
+  .ju367va {
+    padding: 0.5em 0.7em !important;
+    border-radius: 0.4em !important;
+  }
+  .ju367v2b {
+    height: unset !important;
   }
 }
 @media screen and (max-width: 268px) {
-  .nft_home_img_width img{
-   width: 1.6em;
+  .nft_home_img_width img {
+    width: 1.6em;
   }
   .gather {
     font-size: 1.2em;
@@ -3105,14 +3521,20 @@ display: none;  }
   }
 }
 @media screen and (max-width: 268px) {
- 
-.td_marketplace_btn_buy{
-  font-size: 0.4em;
-}
-.song_title {
-  font-size:0.6em;
-}
-
+  .homepage_market .nft_home_img_width img {
+    width: 100px;
+    height: 100px;
+  }
+  .ju367v8o,
+  .ju367va {
+    font-size: 9px !important;
+  }
+  .td_marketplace_btn_buy {
+    font-size: 0.4em;
+  }
+  .song_title {
+    font-size: 0.6em;
+  }
 }
 
 //anime

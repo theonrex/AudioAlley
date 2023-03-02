@@ -13,7 +13,7 @@ import Image from "next/image";
 
 import Link from "next/link";
 import { useRouter } from "next/router";
-import PolygonImg from "../../public/assets/polygon.png";
+import FTMImg from "../../public/assets/ftm.png";
 
 function HomeMarketplace() {
   const [nfts, setNfts] = useState([]);
@@ -36,7 +36,7 @@ function HomeMarketplace() {
   async function loadNFTs() {
     /* create a generic provider and query for unsold market items */
     const provider = new providers.JsonRpcProvider(
-      "https://rpc.testnet.fantom.network"
+      "https://rpc.ankr.com/fantom_testnet"
     );
 
     const nftContract = new Contract(
@@ -64,6 +64,7 @@ function HomeMarketplace() {
           owner: i.owner,
           image: meta.data.image,
           name: meta.data.name,
+          rating: meta.data.rating,
           description: meta.data.description,
         };
         return item;
@@ -126,20 +127,19 @@ function HomeMarketplace() {
       >
         <h1>
           {" "}
-          Welcome to the nft <br />
+          Welcome to the AudioAlly NFT Music <br />
           Marketplace
         </h1>
         <p>
           Welcome to the virtual world&apos;s one-stop-shop for the very best
           digital assets. Here you can <br />
-          search and buy creators&apos;s ASSETS with SAND to incorporate them
-          into your LAND.
+          search and buy creators&apos;s ASSETS with FTM.
         </p>
 
         <div className="rowX nft-mg">
           {homePageNft.map((homeNft, _index) => (
             <div
-              className="col29 nft-img gradient-box"
+              className="col29 homepage_market "
               // key={`post-${homeNft.id}`}
               key={_index}
               onClick={() => {
@@ -147,62 +147,60 @@ function HomeMarketplace() {
                 // router.push(`/${homeNft.tokenId}`);
               }}
             >
-              <div className=" gradient-box epic-img nft_home_img_width">
+              <div className=" epic-img nft_home_img_width">
                 <img src={homeNft.image} alt="img" />
               </div>
-
               <br />
-              <h3>
-                <span>#{homeNft.tokenId} </span> {homeNft.name}
-              </h3>
-
-              <div className="epic-box">
-                <div className="epic">
-                  {!isConnected ? (
-                    <button
-                      text="List NFT"
-                      className="epic-btn"
-                      onClick={connectWallet}
-                    >
-                      connect
-                    </button>
-                  ) : (
-                    <button
-                      className="epic-btn"
-                      onClick={() =>
-                        buyNFT(homeNft?.price.toString(), homeNft.tokenId)
-                      }
-                    >
-                      {" "}
-                      Buy Now
-                    </button>
-                  )}
-
-                  <img src={homeNft.image} alt="img" />
+              <div className="nft_home_col29_text">
+                <h3>
+                  <span>#{homeNft.tokenId} </span> {homeNft.name}
+                </h3>
+                <h3 className="rating"> {homeNft?.rating} </h3>{" "}
+                <div className="ftm-sale">
+                  <div>
+                    {/* <img alt="svgImg" src={FTMImg.src} /> */}
+                    {homeNft.price} FTM
+                  </div>
+                  <div className="ftm-sale-icon">
+                    <a className="nav-link-svg " href="#">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={16}
+                        height={16}
+                        fill="currentColor"
+                        className="bi bi-cart3"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <p className="rating"> </p>{" "}
-                </div>
-              </div>
+                <div className="epic-box">
+                  <div className="epic">
+                    {!isConnected ? (
+                      <button
+                        text="List NFT"
+                        className="epic-btn"
+                        onClick={connectWallet}
+                      >
+                        connect
+                      </button>
+                    ) : (
+                      <button
+                        className="epic-btn"
+                        onClick={() =>
+                          buyNFT(homeNft?.price.toString(), homeNft.tokenId)
+                        }
+                      >
+                        {" "}
+                        Buy Now
+                      </button>
+                    )}
 
-              <div className="eth-sale">
-                <div>
-                  <img alt="svgImg" src={PolygonImg.src} /> {homeNft.price}{" "}
-                  MATIC
-                </div>
-                <div className="eth-sale-icon">
-                  <a className="nav-link-svg " href="#">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={16}
-                      height={16}
-                      fill="currentColor"
-                      className="bi bi-cart3"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                    </svg>
-                  </a>
+                    <img src={homeNft.image} alt="img" />
+                  </div>
+                  <div></div>
                 </div>
               </div>
             </div>

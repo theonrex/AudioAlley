@@ -11,12 +11,13 @@ import {
 import { useAccount, useSigner } from "wagmi";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
+import styled from "styled-components";
 
 const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
 });
-const projectId = "";
-const projectSecret = "";
+const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
+const projectSecret = process.env.NEXT_PUBLIC_PROJECT_SECRET;;
 const projectIdAndSecret = `${projectId}:${projectSecret}`;
 const client = create({
   host: "infura-ipfs.io",
@@ -35,7 +36,11 @@ export default function ListItem() {
   const [file, setFile] = useState();
   const [image, setImage] = useState();
   const [step, setStep] = useState(1);
-  const [storyData, setStoryData] = useState("");
+  const [songData, setSongData] = useState("");
+  const [priceError, setPriceError] = useState("");
+  const [submitError, setsubmitError] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
 
   const [formData, setFormData] = useState({
     price: "",
@@ -43,15 +48,16 @@ export default function ListItem() {
     category: "",
     rating: "",
     description: "",
-    supply: "",
+    artistName: "",
   });
 
+ 
   // Add event listeners to update form data state
   const handleNameChange = (event) => {
     setFormData({ ...formData, name: event.target.value });
   };
   const handlePenpaltextarea = (value) => {
-    setStoryData(value);
+    setSongData(value);
   };
 
   const handleDescriptionChange = (event) => {
@@ -71,16 +77,16 @@ export default function ListItem() {
     setFormData({ ...formData, rating: event.target.value });
   };
 
-  const handleSuppyChange = (event) => {
-    setFormData({ ...formData, supply: event.target.value });
+  const handleArtistNameChange = (event) => {
+    setFormData({ ...formData, artistName: event.target.value });
   };
 
   // On mount, check if there is saved form data in localStorage
   useEffect(() => {
-    // Load the storyData value from local storage when the component mounts
+    // Load the songData value from local storage when the component mounts
     const savedData = localStorage.getItem("formData");
     if (savedData) {
-      setStoryData(savedData);
+      setSongData(savedData);
     }
   }, []);
 
@@ -99,36 +105,21 @@ export default function ListItem() {
   }, []);
 
   // useEffect(() => {
-  //   const savedStoryData = localStorage.getItem("storyData");
-  //   if (savedStoryData) {
-  //     setStoryData(JSON.parse(savedStoryData));
+  //   const savedsongData = localStorage.getItem("songData");
+  //   if (savedsongData) {
+  //     setSongData(JSON.parse(savedsongData));
   //   }
-  //   console.log(savedStoryData);
+  //   console.log(savedsongData);
   // }, []);
 
-  console.log(storyData);
 
   useEffect(() => {
-    // Load the storyData value from local storage when the component mounts
-    const savedData = localStorage.getItem("storyData");
+    // Load the songData value from local storage when the component mounts
+    const savedData = localStorage.getItem("songData");
     if (savedData) {
-      setStoryData(savedData);
+      setSongData(savedData);
     }
   }, []);
-
-  // On form submission, clear form data from localStorage
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    localStorage.removeItem("formData");
-    setFormData({
-      name: "",
-      description: "",
-      price: "",
-      category: "",
-      rating: "",
-      supply: "",
-    });
-  };
 
   const handleNextStep = () => {
     setStep(step + 1);
@@ -139,19 +130,44 @@ export default function ListItem() {
   };
 
   // On form cancellation, clear form data from localStorage
-  // const handleCancel = () => {
-  //   localStorage.removeItem("formData");
-  //   setFormData({ name: ""});
-  // };
+  const handleCancel = () => {
+    localStorage.removeItem("formData");
+    setFormData({
+      name: "",
+      price: "",
+      description: "",
+      category: "",
+      rating: "",
+      songData: "",
+      file: "",
+      image: "",
+      artistName: "",
+    });
+  };
+   // On form cancellation, clear form data from localStorage
+  const handleSubmitCancel = () => {
+    localStorage.removeItem("formData");
+    setFormData({
+      name: "",
+      price: "",
+      description: "",
+      category: "",
+      rating: "",
+      songData: "",
+      file: "",
+      image: "",
+      artistName: "",
+    });
+  };
 
   // Save form data to localStorage on each change
   useEffect(() => {
     localStorage.setItem("formData", JSON.stringify(formData));
   }, [formData]);
   useEffect(() => {
-    // Save the storyData value to local storage whenever it changes
-    localStorage.setItem("storyData", storyData);
-  }, [storyData]);
+    // Save the songData value to local storage whenever it changes
+    localStorage.setItem("songData", songData);
+  }, [songData]);
 
   //wagmi signer
   const { data: signer } = useSigner();
@@ -159,6 +175,7 @@ export default function ListItem() {
 
   // Onchange of file
   const onChange = async (e) => {
+    setIsUploading(true)
     const fileData = e.target.files[0];
     try {
       const add = await client.add(fileData, {
@@ -169,9 +186,11 @@ export default function ListItem() {
     } catch (error) {
       console.log("Something went wrong", error);
     }
+    setIsUploading(false)
   };
 
   const imageChange = async (e) => {
+    setIsUploadingImage(true)
     const imageData = e.target.files[0];
     try {
       const add = await client.add(imageData, {
@@ -182,6 +201,7 @@ export default function ListItem() {
     } catch (error) {
       console.log("something went wrong", error);
     }
+    setIsUploadingImage(false)
   };
 
   const connectWallet = () => {
@@ -229,24 +249,60 @@ export default function ListItem() {
     router.push("/marketplace");
     setisListing(false);
   };
+    const handlePriceError = (event) => {
+      const price = event.target.value;
+      // check if the input is a number
+      if (!isNaN(price)) {
+        setFormData({ ...formData, price });
+        setPriceError("");
+      } else {
+        setPriceError("Please enter a valid number");
+      }
+  };
+  
+  const handleNextError = (event) => {
+         event.preventDefault();
+
+    const { name, price, category, rating, description, artistName } = formData;
+     // check if the input is a number
+     if (
+       !name ||
+       !price ||
+       !description ||
+       !category ||
+       !rating ||
+       !songData ||
+       !file ||
+       !image ||
+       !artistName
+     ) {
+       setsubmitError("Some input filed is missing");
+             setisListing(false);
+
+       setPriceError("");
+     } else {
+       setPriceError("Please enter a valid number");
+     }
+   };
+    
 
   const listAnItem = async () => {
     event.preventDefault();
 
     setisListing(true);
-    const { name, price, category, rating, description, supply } = formData;
+    const { name, price, category, rating, description, artistName } = formData;
     if (
       !name ||
       !price ||
       !description ||
       !category ||
       !rating ||
-      !storyData ||
+      !songData ||
       !file ||
       !image ||
-      !supply
+      !artistName
     ) {
-      console.log("Some feild are missing");
+      setsubmitError("Some input filed is missing");
       setisListing(false);
       return;
     }
@@ -256,17 +312,18 @@ export default function ListItem() {
       description,
       category,
       rating,
-      supply,
-      storyData,
+      artistName,
+      songData,
       image: image,
       file: file,
     });
     try {
       const added = await client.add(data);
       const url = `https://theonnfts.infura-ipfs.io/ipfs/${added.path}`;
-      const supplyNum = parseInt(supply);
 
-      createItem(url, supplyNum);
+      createItem(url);
+      handleSubmitCancel()
+      
     } catch (error) {
       console.log("Error in listAnItem function ", error);
     }
@@ -274,124 +331,126 @@ export default function ListItem() {
 
   return (
     <>
-      <div className="story_preview">
-        <div className="story_left">
-          <img src="https://img.icons8.com/fluency-systems-filled/48/null/left-squared.png" />
+      <div className="song_preview container">
+        <div className="song_left ">
           <section>
-            <h5>Add Story Info</h5>
-            <h2>Untitled Story</h2>
+            <h5>Add song Info</h5>
+            <h2> {formData.name ? formData.name : <> Untitled</>}</h2>
           </section>
         </div>
-        <div className="story_btn">
-          <button> Cancel </button>
-          <button> Skip</button>
+        <div className="song_btn">
+          <button onClick={handleCancel}> Cancel </button>
         </div>
       </div>
       <div className="flex justify-center  container create_item rowx">
         <section className="create_form ">
           <form action="">
+            {submitError ? <p className="handlePriceError">{submitError}</p> : null}
             {step === 1 && (
               <div>
-                <div className="col50">
-                  <h2>Story Details</h2>
-                  <label htmlFor="Title "> Title</label>
-                  <input
-                    id="name"
-                    placeholder="e.g. Love is in the air"
-                    label="Name"
-                    type="text"
-                    value={formData.name}
-                    onChange={handleNameChange}
-                  />
-                  <label htmlFor=""> Description</label>
-                  <input
-                    id="description"
-                    type="text"
-                    placeholder="e.g.This is most unique monkey in the world."
-                    label="Description"
-                    value={formData.description}
-                    onChange={handleDescriptionChange}
-                  />
-                  <label
-                    htmlFor="category"
-                    className="block mb-2 text-sm font-medium  dark:text-white"
-                  >
-                    Category
-                  </label>
-                  <select
-                    id="category"
-                    value={formData.category}
-                    onChange={handleCategoryChange}
-                    type="text"
-                  >
-                    <option defaultValue="Love">Love</option>
-                    <option value="Adventure">Adventure</option>
-                    <option value="Motivation">Motivation</option>
-                    <option value="Fantasy">Fantasy</option>
-                    <option value="Romance">Romance</option>
-                    <option value="Spiritual">Spiritual</option>
-                    <option value="Vampire">Vampire</option>
-                    <option value="Random">Random</option>
-                    <option value="Education">Education</option>
-                    <option value="Politics">Politics</option>
-                    <option value="Religion">Religion</option>
-                  </select>
-                  <label
-                    htmlFor="rating"
-                    className="block mb-2 text-sm font-medium  dark:text-white"
-                  >
-                    Rating
-                  </label>
-                  <select
-                    type="text"
-                    id="rating"
-                    value={formData.rating}
-                    onChange={handleRatingChange}
-                    className="  "
-                  >
-                    <option defaultValue="generalAud">General Audiences</option>
-                    <option value="matureaudiences">Mature Audiences</option>
-                  </select>
-                  <label htmlFor="">Price</label>
-                  <input
-                    id="price"
-                    type="text"
-                    placeholder="e.g.10 (In Polygon)"
-                    label="Price"
-                    value={formData.price}
-                    onChange={handlePriceChange}
-                  />
+                <div className="rowx">
+                  <div className="col50">
+                    <h2>Song Details</h2>
+                    <label htmlFor="Title ">Song Title</label>
+                    <input
+                      id="name"
+                      placeholder="e.g. Love is in the air"
+                      label="Name"
+                      value={formData.name}
+                      onChange={handleNameChange}
+                    />
+                    <label htmlFor=""> Description</label>
+                    <input
+                      id="description"
+                      placeholder="e.g.This is most unique song in the world."
+                      label="Description"
+                      value={formData.description}
+                      onChange={handleDescriptionChange}
+                    />
+                    <label
+                      htmlFor="category"
+                      className="block mb-2 text-sm font-medium  dark:text-white"
+                    >
+                      Category
+                    </label>
+                    <select
+                      id="category"
+                      value={formData.category}
+                      onChange={handleCategoryChange}
+                    >
+                      <option defaultValue="Love">Love</option>
+                      <option value="Adventure">Adventure</option>
+                      <option value="Motivation">Motivation</option>
+                      <option value="Fantasy">Fantasy</option>
+                      <option value="Romance">Romance</option>
+                      <option value="Spiritual">Spiritual</option>
+                      <option value="Vampire">Vampire</option>
+                      <option value="Random">Random</option>
+                      <option value="Education">Education</option>
+                      <option value="Politics">Politics</option>
+                      <option value="Religion">Religion</option>
+                    </select>
+                    <label
+                      htmlFor="rating"
+                      className="block mb-2 text-sm font-medium  dark:text-white"
+                    >
+                      Rating
+                    </label>
+                    <select
+                      id="rating"
+                      value={formData.rating}
+                      onChange={handleRatingChange}
+                      className="  "
+                    >
+                      <option defaultValue="generalAud">
+                        General Audience
+                      </option>
+                      <option value="mature audience">Mature Audience</option>
+                    </select>
+                    <label htmlFor="">Price</label>
+                    {priceError && (
+                      <p className="handlePriceError">{priceError}</p>
+                    )}
 
-                  <label htmlFor="">supply</label>
-                  <input
-                    id="price"
-                    type="text"
-                    placeholder="e.g.10 (In Polygon)"
-                    label="Price"
-                    value={formData.supply}
-                    onChange={handleSuppyChange}
-                  />
+                    <input
+                      id="price"
+                      placeholder="e.g.10 (In FANTOM)"
+                      label="Price"
+                      value={formData.price}
+                      onChange={(handlePriceChange, handlePriceError)}
+                    />
 
-                  <button
-                    type="button"
-                    className="btn_submit_nft"
-                    onClick={handleNextStep}
-                  >
-                    Next
-                  </button>
+                    <label htmlFor="">Artist Name </label>
+                    <input
+                      id="artistname"
+                      placeholder="e.g. Olivia"
+                      label="artistname"
+                      value={formData.artistName}
+                      onChange={handleArtistNameChange}
+                    />
+                  </div>
+                  <section className="col50 nft_uploaded_image">
+                    <label htmlFor="Cover Image"> Cover Image</label>
+                    <input
+                      id="image"
+                      accept=".jpg,.png, .jpeg, .jfif"
+                      placeholder="Choose image file"
+                      label="3 Image"
+                      type="file"
+                      onChange={imageChange}
+                    />
+                    {isUploadingImage ? <p>Loading.....</p> : null}
+                    {image ? <img src={image} alt="Choosen image" /> : null}
+                  </section>{" "}
+                  <br />
                 </div>
-                <section className="col50 nft_uploaded_image">
-                  <label htmlFor="Cover Image"> Cover Image</label>
-                  <input
-                    id="image"
-                    accept=".jpg,.png, .jpeg"
-                    placeholder="Choose image file"
-                    label="3 Image"
-                    type="file"
-                    onChange={imageChange}
-                  />
-                  {image ? <img src={image} alt="Choosen image" /> : null}
-                </section>{" "}
+                <button
+                  type="button"
+                  className="btn_submit_nft"
+                  onClick={handleNextStep}
+                >
+                  Next
+                </button>
               </div>
             )}
 
@@ -407,6 +466,7 @@ export default function ListItem() {
                     label="File"
                     onChange={onChange}
                   />
+                  {isUploading ? <p>Loading.....</p> : null}
 
                   {file ? (
                     <embed
@@ -427,7 +487,7 @@ export default function ListItem() {
                 <div>
                   <ReactQuill
                     theme="snow"
-                    value={storyData}
+                    value={songData}
                     onChange={handlePenpaltextarea}
                   />
                 </div>
@@ -454,7 +514,7 @@ export default function ListItem() {
                     onClick={listAnItem}
                     disabled={isListing}
                   >
-                    Upload Music
+                    {isListing ? "Loading " : "Upload Music"}
                   </button>
                 )}
               </>
