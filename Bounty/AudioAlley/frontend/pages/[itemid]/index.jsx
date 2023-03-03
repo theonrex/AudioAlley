@@ -251,17 +251,7 @@ export default function Itemid() {
                     >
                       {loading ? "Loading..." : "Subscribe for 0.03 FTM"}
                     </button>
-                  ) : (
-                    <button
-                      className="buy_song_btn"
-                      onClick={() =>
-                        buyNFT(nftData.price.toString(), nftData.tokenId)
-                      }
-                      disabled={isPurchasing}
-                    >
-                      {isPurchasing ? "Loading" : "Buy Song"}
-                    </button>
-                  )}
+                  ) : null}
 
                   {error && <p style={{ color: "red" }}>{error}</p>}
                   {success && (
@@ -270,9 +260,18 @@ export default function Itemid() {
                   {isActive ? (
                     <div>
                       <p>
-                        User's subscription is active until:{" "}
+                      subscription active until: {" "}
                         {new Date(expiryDate * 1000).toLocaleString()}{" "}
                       </p>
+                      <button
+                        className="buy_song_btn"
+                        onClick={() =>
+                          buyNFT(nftData.price.toString(), nftData.tokenId)
+                        }
+                        disabled={isPurchasing}
+                      >
+                        {isPurchasing ? "Loading" : "Buy Song"}
+                      </button>
                     </div>
                   ) : (
                     <p>You must subscribe to purchase this song.</p>

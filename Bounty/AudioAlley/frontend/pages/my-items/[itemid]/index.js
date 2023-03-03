@@ -63,6 +63,9 @@ export default function Itemid() {
         image: metaData.data.image,
         name: metaData.data.name,
         description: metaData.data.description,
+        artistName: metaData?.data?.artistName,
+        fileUrl: metaData.data.file,
+        file: metaData.data.file,
       };
       // console.log(item);
       setNftData(item);

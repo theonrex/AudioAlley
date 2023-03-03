@@ -82,14 +82,14 @@ export default function MyItems() {
             allNFTs?.map((nft, index) => (
               <div key={index}>
                 <div
-                  className="col29 homepage_market gradient-box "
+                  className="col29 homepage_market "
                   key={`post-${nft.id}`}
                   onClick={() => {
                     // buyNFT(nft);
                     router.push(`/my-items/${nft.tokenId}`);
                   }}
                 >
-                  <div className=" gradient-box epic-img nft_home_img_width">
+                  <div className=" epic-img nft_home_img_width">
                     <img src={nft.image} alt="img" />
                   </div>
                   <h3>
@@ -118,7 +118,6 @@ export default function MyItems() {
                         {" "}
                         List
                       </button>
-                      <img src={nft.image} alt="img" />
                     </div>
                   </div>
                 </div>
