@@ -35,7 +35,7 @@ const Demo = () => {
     defaultPlayMode: "order",
     mode: "full",
     autoPlay: false,
-    responsive: true,
+    responsive: false,
   };
 
   const [unmount, setUnmount] = useState(false);
