@@ -2448,6 +2448,9 @@ input[type="submit"] {
 .audio-lists-panel-content .audio-item.playing svg:active {
   color: $base-color;
 }
+.audio-download{
+  display: none !important;
+}
 .react-jinke-music-player-main
   .music-player-panel
   .panel-content

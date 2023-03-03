@@ -17,7 +17,7 @@ const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
 });
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
-const projectSecret = process.env.NEXT_PUBLIC_PROJECT_SECRET;;
+const projectSecret = process.env.NEXT_PUBLIC_PROJECT_SECRET;
 const projectIdAndSecret = `${projectId}:${projectSecret}`;
 const client = create({
   host: "infura-ipfs.io",
@@ -51,7 +51,6 @@ export default function ListItem() {
     artistName: "",
   });
 
- 
   // Add event listeners to update form data state
   const handleNameChange = (event) => {
     setFormData({ ...formData, name: event.target.value });
@@ -82,13 +81,6 @@ export default function ListItem() {
   };
 
   // On mount, check if there is saved form data in localStorage
-  useEffect(() => {
-    // Load the songData value from local storage when the component mounts
-    const savedData = localStorage.getItem("formData");
-    if (savedData) {
-      setSongData(savedData);
-    }
-  }, []);
 
   useEffect(() => {
     const savedFormData = localStorage.getItem("formData");
@@ -103,15 +95,6 @@ export default function ListItem() {
       setFormData(JSON.parse(savedFileData));
     }
   }, []);
-
-  // useEffect(() => {
-  //   const savedsongData = localStorage.getItem("songData");
-  //   if (savedsongData) {
-  //     setSongData(JSON.parse(savedsongData));
-  //   }
-  //   console.log(savedsongData);
-  // }, []);
-
 
   useEffect(() => {
     // Load the songData value from local storage when the component mounts
@@ -132,28 +115,36 @@ export default function ListItem() {
   // On form cancellation, clear form data from localStorage
   const handleCancel = () => {
     localStorage.removeItem("formData");
+    localStorage.removeItem("songData");
+    setSongData({
+      songData: "",
+      savedData: "",
+    });
     setFormData({
       name: "",
       price: "",
       description: "",
       category: "",
       rating: "",
-      songData: "",
       file: "",
       image: "",
       artistName: "",
     });
   };
-   // On form cancellation, clear form data from localStorage
+  // On form cancellation, clear form data from localStorage
   const handleSubmitCancel = () => {
     localStorage.removeItem("formData");
+    localStorage.removeItem("songData");
+  setSongData({
+    songData: "",
+    savedData: "",
+  });
     setFormData({
       name: "",
       price: "",
       description: "",
       category: "",
       rating: "",
-      songData: "",
       file: "",
       image: "",
       artistName: "",
@@ -175,7 +166,7 @@ export default function ListItem() {
 
   // Onchange of file
   const onChange = async (e) => {
-    setIsUploading(true)
+    setIsUploading(true);
     const fileData = e.target.files[0];
     try {
       const add = await client.add(fileData, {
@@ -186,11 +177,11 @@ export default function ListItem() {
     } catch (error) {
       console.log("Something went wrong", error);
     }
-    setIsUploading(false)
+    setIsUploading(false);
   };
 
   const imageChange = async (e) => {
-    setIsUploadingImage(true)
+    setIsUploadingImage(true);
     const imageData = e.target.files[0];
     try {
       const add = await client.add(imageData, {
@@ -201,7 +192,7 @@ export default function ListItem() {
     } catch (error) {
       console.log("something went wrong", error);
     }
-    setIsUploadingImage(false)
+    setIsUploadingImage(false);
   };
 
   const connectWallet = () => {
@@ -249,42 +240,41 @@ export default function ListItem() {
     router.push("/marketplace");
     setisListing(false);
   };
-    const handlePriceError = (event) => {
-      const price = event.target.value;
-      // check if the input is a number
-      if (!isNaN(price)) {
-        setFormData({ ...formData, price });
-        setPriceError("");
-      } else {
-        setPriceError("Please enter a valid number");
-      }
+  const handlePriceError = (event) => {
+    const price = event.target.value;
+    // check if the input is a number
+    if (!isNaN(price)) {
+      setFormData({ ...formData, price });
+      setPriceError("");
+    } else {
+      setPriceError("Please enter a valid number");
+    }
   };
-  
+
   const handleNextError = (event) => {
-         event.preventDefault();
+    event.preventDefault();
 
     const { name, price, category, rating, description, artistName } = formData;
-     // check if the input is a number
-     if (
-       !name ||
-       !price ||
-       !description ||
-       !category ||
-       !rating ||
-       !songData ||
-       !file ||
-       !image ||
-       !artistName
-     ) {
-       setsubmitError("Some input filed is missing");
-             setisListing(false);
+    // check if the input is a number
+    if (
+      !name ||
+      !price ||
+      !description ||
+      !category ||
+      !rating ||
+      !songData ||
+      !file ||
+      !image ||
+      !artistName
+    ) {
+      setsubmitError("Some input filed is missing");
+      setisListing(false);
 
-       setPriceError("");
-     } else {
-       setPriceError("Please enter a valid number");
-     }
-   };
-    
+      setPriceError("");
+    } else {
+      setPriceError("Please enter a valid number");
+    }
+  };
 
   const listAnItem = async () => {
     event.preventDefault();
@@ -322,8 +312,7 @@ export default function ListItem() {
       const url = `https://theonnfts.infura-ipfs.io/ipfs/${added.path}`;
 
       createItem(url);
-      handleSubmitCancel()
-      
+      handleSubmitCancel();
     } catch (error) {
       console.log("Error in listAnItem function ", error);
     }

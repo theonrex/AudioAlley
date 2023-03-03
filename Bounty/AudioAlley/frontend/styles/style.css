@@ -2422,6 +2422,10 @@ input[type=submit] {
   color: #f4a700;
 }
 
+.audio-download {
+  display: none !important;
+}
+
 .react-jinke-music-player-main .music-player-panel .panel-content .rc-slider-handle,
 .react-jinke-music-player-main .music-player-panel .panel-content .rc-slider-track {
   background-color: #f4a700;

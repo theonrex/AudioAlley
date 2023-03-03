@@ -25,7 +25,7 @@ export async function MusicData() {
     NFT_MARKETPLACE_ABI,
     provider
   );
-  const data = await contract.getSellerListedItems();
+  const data = await contract.getOwnerListedItems();
 
   try {
     const items = await Promise.all(

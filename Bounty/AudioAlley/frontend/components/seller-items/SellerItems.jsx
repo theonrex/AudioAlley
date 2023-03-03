@@ -156,7 +156,6 @@ export default function SellerItems() {
                       {/* button */}
                       <div className="epic-box">
                         <div className="epic">
-                          <img src={nft.image} alt="img" />
                         </div>
                         <div>{/* <p className="rating"> 18/90</p> */}</div>
                       </div>
@@ -201,20 +200,10 @@ export default function SellerItems() {
                           <img src={nft.image} alt="img" />
                         </div>
 
-                        <h3>
-                         {nft.name}
-                        </h3>
+                        <h3>{nft.name}</h3>
                         {/* button */}
                         <div className="epic-box">
-                          <div className="epic">
-                            <button
-                              nft={nft}
-                              className="purchase_btn seller"
-                              url="/my-items/"
-                            >
-                              Buy
-                            </button>
-                          </div>
+                          <div className="epic"></div>
                           <div>{/* <p className="rating"> 18/90</p> */}</div>
                         </div>
                         {/* eth */}
