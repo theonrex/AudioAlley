@@ -162,29 +162,51 @@ button {
   width: 50px;
 }
 
-.AccountBalance_nav {
-  background-color: purple;
+.AccountBalance {
+  display: none;
+}
+
+.AccountBalance_active {
+  position: relative;
+  top: 4em;
+  background-color: rgb(5, 5, 5);
   text-align: center;
-  padding: 0.5em 0;
-  color: white;
+  padding: 2em 0;
+  color: #f4a700;
+  text-transform: uppercase;
+}
+
+.marquee {
+  z-index: 0 !important;
 }
 
 .AccountBalance {
   text-align: center;
   padding: 0.5em 0;
-  color: white;
+  color: #f4a700;
 }
 
-.AccountBalance_nav a,
-.low_polygon {
+.AccountBalance_active img {
+  width: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 100%;
+}
+
+.AccountBalance_active a,
+.low_ftm {
+  display: flex;
   text-decoration: underline;
-  text-transform: capitalize;
+  text-transform: uppercase !important;
   line-height: 1em;
   font-size: 0.9em;
+  color: white;
+  flex-direction: row;
+  align-items: center;
 }
 
-.AccountBalance_nav a:hover {
-  color: #ffffff;
+.AccountBalance_active a:hover {
+  color: #f4a700;
   box-shadow: 0px 5px 15px 4px rgba(250, 248, 248, 0.071);
 }
 
@@ -314,7 +336,7 @@ a {
   background-image: url(../public/assets/headphones.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 55px;
+  padding-top: 35px;
   position: relative;
 }
 
@@ -778,8 +800,6 @@ li {
   transition: all 0.3s;
   line-height: 1.4em;
   border: 2px solid var(--purple);
-  background: linear-gradient(to right, rgba(253, 27, 245, 0.219) 1%, transparent 40%, transparent 60%, rgba(27, 253, 156, 0.1) 100%);
-  color: var(--green);
   box-shadow: inset 0 0 10px rgba(27, 53, 253, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
 }
 
@@ -795,7 +815,7 @@ li {
   width: 1em;
   top: 0;
   transition: transform 0.4s ease-in-out;
-  background: linear-gradient(to right, transparent 1%, rgba(253, 27, 185, 0.1) 40%, rgba(27, 253, 156, 0.1) 60%, transparent 100%);
+  background: linear-gradient(to right, transparent 1%, rgba(250, 175, 0, 0.1) 40%, rgba(250, 132, 5, 0.1) 60%, transparent 100%);
 }
 
 .purchase_btn:hover:before {
@@ -1164,8 +1184,13 @@ li {
 }
 
 .No_Listed_NFTs {
+  display: flex;
   padding-top: 1em;
-  text-align: left;
+  padding-bottom: 2em;
+  text-align: left !important;
+  flex-direction: column;
+  align-content: flex-end;
+  align-items: flex-start;
 }
 
 .sold_nfts {

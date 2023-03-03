@@ -11,6 +11,7 @@ import Loading from "../Loading";
 import { useSigner, useProvider } from "wagmi";
 import { useRouter } from "next/router";
 import { useAccount, useBalance } from "wagmi";
+import Play from "../../components/music/SellerSongs/Play"
 export default function SellerItems() {
   const router = useRouter();
   const [allNFTs, setAllNFTs] = useState([]);
@@ -161,17 +162,14 @@ export default function SellerItems() {
                       </div>
                       {/* eth */}
                       <div className="eth-sale">
-                        <div>
-                          {nft.price} FTM
-                        </div>
-                      
+                        <div>{nft.price} FTM</div>
                       </div>
                     </div>{" "}
                   </div>
                 ))
               ) : (
                 <div className=" No_Listed_NFTs">
-                  No Listed NFTs found{" "}
+                  <h2>No Listed NFTs Songs found </h2>{" "}
                   <span>
                     <button
                       text="List Now"
@@ -189,7 +187,7 @@ export default function SellerItems() {
           {/* Sold list */}
           <div className="sold_nfts">
             <hr />
-            <header>Songs Sold  </header>
+            <header>Songs Sold </header>
             <div className="">
               {soldNFTs.length && !loading ? (
                 soldNFTs?.map((nft, index) => (
@@ -252,10 +250,11 @@ export default function SellerItems() {
                         </div>
                       </div>{" "}
                     </div>
+                    <Play/>
                   </div>
                 ))
               ) : (
-                <div className="No_NFTs_sold">No NFTs sold yet</div>
+                <div className="No_NFTs_sold">No Songs sold yet</div>
               )}
             </div>
           </div>

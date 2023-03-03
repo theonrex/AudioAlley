@@ -30,9 +30,6 @@ export default function Sidebar() {
             <SearchModal /> 
           </li>
 
-          {/* <li>
-            <a href="#" className="nav_item"></a>
-          </li> */}
         </ul>
       </div>
     </aside>

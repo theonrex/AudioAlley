@@ -1,25 +1,16 @@
 import React from "react";
 import { useState } from "react";
 
-import TheonLogo from "../../public/assets/theonrex plain.png";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import Theme from "../Theme";
-import { useAccount, useBalance } from "wagmi";
 import "flowbite";
 import Musicpng from "../../public/assets/music logo.png";
 import Image from "next/image";
-import ProfileImage from "../../public/assets/2.png"
-import Search from "../Search"
-import SearchModal from './SearchModal'
+import ProfileImage from "../../public/assets/2.png";
+import SearchModal from "./SearchModal";
 const Navbar = () => {
-  const { address } = useAccount();
-  const [loadingState, setLoadingState] = useState("not-loaded");
-
-
-
   return (
     <>
-      <div className="">
+      <div className="full_nav_body">
         <div>
           <nav className="fixed top-0 z-50 w-full border-b border-gray-200 dark:border-gray-700">
             <div className="px-3 py-3 lg:px-5 lg:pl-3">

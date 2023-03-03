@@ -22,6 +22,7 @@ import {
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { publicProvider } from "wagmi/providers/public";
 import "flowbite";
+import LowBalance from "../components/LowBalance";
 
 const FantomiChain = {
   id: 4002,
@@ -87,6 +88,9 @@ function MyApp({ Component, pageProps }) {
             />
           </Head>
           <Navbar />
+          <div>
+            <LowBalance />
+          </div>
 
           <div className="sideAndMainBar">
             <Sidebar />

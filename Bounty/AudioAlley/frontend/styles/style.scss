@@ -157,27 +157,47 @@ button {
 .navbar-brand > img {
   width: 50px;
 }
-.AccountBalance_nav {
-  background-color: purple;
-  text-align: center;
-  padding: 0.5em 0;
-  color: white;
+.AccountBalance{
+  display: none;
 }
-
+.AccountBalance_active {
+  position: relative;
+  top: 4em;
+  background-color: rgb(5, 5, 5);
+  text-align: center;
+  padding: 2em 0;
+  color: $base-color;
+  text-transform: uppercase;
+}
+.marquee {
+  z-index: 0 !important;
+}
 .AccountBalance {
   text-align: center;
   padding: 0.5em 0;
-  color: white;
+  color: $base-color;
 }
-.AccountBalance_nav a,
-.low_polygon {
-  text-decoration: underline;
-  text-transform: capitalize;
-  line-height: 1em;
-  font-size: 0.9em;
+.AccountBalance_active img{
+width: 30px;
+    padding-left: 5px;
+      padding-right: 5px;
+height: 100%;
 }
-.AccountBalance_nav a:hover {
-  color: #ffffff;
+.AccountBalance_active a,
+.low_ftm {
+    display: flex;
+    text-decoration: underline;
+    text-transform: uppercase !important;
+    line-height: 1em;
+    font-size: 0.9em;
+    color: white;
+    flex-direction: row;  
+    
+
+    align-items: center;
+}
+.AccountBalance_active a:hover {
+  color: #f4a700;
   box-shadow: 0px 5px 15px 4px rgba(250, 248, 248, 0.071);
 }
 
@@ -311,7 +331,7 @@ a {
   background-image: url(../public/assets/headphones.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 55px;
+  padding-top: 35px;
   position: relative;
 }
 .background_img {
@@ -784,14 +804,7 @@ li {
   transition: all 0.3s;
   line-height: 1.4em;
   border: 2px solid var(--purple);
-  background: linear-gradient(
-    to right,
-    rgba(253, 27, 245, 0.219) 1%,
-    transparent 40%,
-    transparent 60%,
-    rgba(27, 253, 156, 0.1) 100%
-  );
-  color: var(--green);
+
   box-shadow: inset 0 0 10px rgba(27, 53, 253, 0.4),
     0 0 9px 3px rgba(27, 253, 156, 0.1);
 }
@@ -814,8 +827,8 @@ li {
   background: linear-gradient(
     to right,
     transparent 1%,
-    rgba(253, 27, 185, 0.1) 40%,
-    rgba(27, 253, 156, 0.1) 60%,
+    rgba(250, 175, 0, 0.1) 40%,
+    rgba(250, 132, 5, 0.1) 60%,
     transparent 100%
   );
 }
@@ -941,14 +954,14 @@ li {
 .second-section {
   padding-top: 54px;
 }
-.second-section h1{
-      background: #ffbf00;
-    background: linear-gradient(to right, #ffbf00, #731b00);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 800;
-    padding-bottom: 0.4em;
+.second-section h1 {
+  background: #ffbf00;
+  background: linear-gradient(to right, #ffbf00, #731b00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+  padding-bottom: 0.4em;
 }
 .second-section h2 {
   margin: auto;
@@ -1195,8 +1208,13 @@ li {
   text-align: left;
 }
 .No_Listed_NFTs {
-  padding-top: 1em;
-  text-align: left;
+    display: flex;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    text-align: left !important;
+    flex-direction: column;
+    align-content: flex-end;
+    align-items: flex-start;
 }
 .sold_nfts {
   display: table;
@@ -3099,17 +3117,16 @@ input[type="submit"] {
   }
 
   .epic-btn {
-  
-     background: rgb(0, 0, 0);
-  background: linear-gradient(18deg, rgb(0, 0, 0) 0%, rgb(55, 18, 0) 100%);
-  padding: 5px 30px;
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  color: white;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(18deg, rgb(0, 0, 0) 0%, rgb(55, 18, 0) 100%);
+    padding: 5px 30px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: white;
   }
 
   .third-section p {
@@ -3400,15 +3417,15 @@ input[type="submit"] {
 
   .epic-btn {
     background: rgb(0, 0, 0);
-  background: linear-gradient(18deg, rgb(0, 0, 0) 0%, rgb(55, 18, 0) 100%);
-  padding: 5px 30px;
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  color: white;
+    background: linear-gradient(18deg, rgb(0, 0, 0) 0%, rgb(55, 18, 0) 100%);
+    padding: 5px 30px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: white;
   }
 
   .third-section p {

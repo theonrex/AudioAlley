@@ -11,7 +11,7 @@ import Link from "next/link";
 import Loading from "../Loading";
 import { useRouter } from "next/router";
 import { useSigner, useProvider } from "wagmi";
-
+import Play from "../music/mysongs/Play"
 export default function MyItems() {
   const [allNFTs, setAllNFTs] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -120,10 +120,9 @@ export default function MyItems() {
                       </button>
                       <img src={nft.image} alt="img" />
                     </div>
-                    <div>{/* <p className="rating"> 18/90</p> */}</div>
                   </div>
-                  {/* eth */}
-                </div>{" "}
+                </div>
+                <Play/>
               </div>
             ))
           ) : (

@@ -8,7 +8,6 @@ import {
 } from "../../../constants/index";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { AiOutlineArrowRight } from "react-icons/ai";
 import NftInfo from "../../../components/nft-info/NftInfo";
 import { useSigner } from "wagmi";
 import Loading from "../../../components/Loading";

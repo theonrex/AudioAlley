@@ -4,8 +4,7 @@ import Homebanner from "../components/HomePageBanner";
 
 import { FavouriteNFTs } from "../components/FavouriteNFTs/FavouriteNFTs";
 import HomeMarketplace from "../components/HomeMarketplace/HomeMarketplace";
-import About from "../components/About";
-
+import Play from "../components/music/Play";
 export default function Home() {
   return (
     <div>
@@ -15,6 +14,7 @@ export default function Home() {
         <Homebanner />
         <FavouriteNFTs />
         <HomeMarketplace />
+        <Play/>
       </MainLayout>
     </div>
   );

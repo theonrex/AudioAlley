@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useAccount, useConnect, useSigner } from "wagmi";
+import { useAccount } from "wagmi";
 import ListItem from "../list-item/ListItem";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Authmessage from "./Authmessage";
 export default function Auth() {
   //wagmi signer
-  const { data: signer } = useSigner();
   const [connector, setConnector] = useState(null);
   const [connected, setConnected] = useState(false);
 
