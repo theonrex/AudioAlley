@@ -67,7 +67,6 @@ export default function Itemid() {
 
         songData: metaData.data.songData,
       };
-      console.log(item);
       setNftData(item);
     };
     allData();
@@ -127,9 +126,7 @@ export default function Itemid() {
                 placeholder="e.g.10 "
                 label="Resell Price"
                 onChange={(e) => {
-                  console.log(formData.price);
                   setFormData({ ...formData, price: e.target.value });
-                  console.log(formData);
                 }}
               />
               <br />

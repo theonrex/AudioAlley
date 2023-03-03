@@ -55,9 +55,9 @@ export default function MyAssets() {
     setLoadingState("loaded");
   }
 
-  console.log(nfts);
+  // console.log(nfts);
   function listNFT(nft) {
-    console.log("nft:", nft);
+    // console.log("nft:", nft);
     router.push(
       `/dashboard/resell-nft?id=${nft.tokenId}&tokenURI=${nft.tokenURI}`
     );

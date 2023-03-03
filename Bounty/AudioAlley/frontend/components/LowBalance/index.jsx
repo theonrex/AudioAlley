@@ -26,7 +26,6 @@ const LowBalance = () => {
             : `AccountBalance`
         }
       >
-        {console.log(data?.formatted)}
         <section className=" container-xxl">
           {( isConnected && data?.formatted < 2 )  ? (
             <Marquee gradient={false} style={false}>

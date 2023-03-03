@@ -1194,6 +1194,7 @@ li {
 }
 
 .sold_nfts {
+  width: 100%;
   display: table;
 }
 

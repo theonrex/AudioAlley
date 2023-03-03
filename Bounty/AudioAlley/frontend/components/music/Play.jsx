@@ -28,7 +28,6 @@ const Demo = () => {
     musicSrc: song.fileUrl,
   }));
 
-  console.log(audioList1);
 
   const options = {
     preload: false,
@@ -45,7 +44,6 @@ const Demo = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const audioRef = useRef({});
-  console.log(audioRef);
 
   const handleGetAudioInstance = (audio) => {
     audioRef.current = audio;

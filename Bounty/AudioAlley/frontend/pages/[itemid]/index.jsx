@@ -58,7 +58,6 @@ export default function Itemid() {
     );
 
     const user = address;
-    console.log(user);
 
     const sub = await nftMarketPlaceContract.getSubscriptionPrice();
     const convertSub = ethers.utils.formatUnits(sub.toString(), "ether");

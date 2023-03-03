@@ -111,7 +111,6 @@ const Marketplace = () => {
         })
       );
       setNfts(items);
-      console.log(items);
       setLoadingState("loaded");
     } catch (error) {
       console.log("something went wrong ", error);
@@ -131,7 +130,7 @@ const Marketplace = () => {
     axios
       .request(options)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setUsdPrice(response.data);
       })
       .catch((error) => {
@@ -144,7 +143,7 @@ const Marketplace = () => {
   if (favNfts != undefined) {
     const UsdPrice = usdPrice
       ? ["fantom-network"].usd * nfts.price
-      : console.log(favNfts);
+      : console.log(null);
   }
 
   async function buyNft(nft) {

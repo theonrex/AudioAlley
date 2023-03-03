@@ -64,7 +64,7 @@ export default function Itemid() {
         name: metaData.data.name,
         description: metaData.data.description,
       };
-      console.log(item);
+      // console.log(item);
       setNftData(item);
     };
     allData();
@@ -123,9 +123,8 @@ export default function Itemid() {
                 placeholder="e.g.10 (In FTM)"
                 label="Resell Price"
                 onChange={(e) => {
-                  console.log(formData.price);
                   setFormData({ ...formData, price: e.target.value });
-                  console.log(formData);
+                  // console.log(formData);
                 }}
               />
               <br />
