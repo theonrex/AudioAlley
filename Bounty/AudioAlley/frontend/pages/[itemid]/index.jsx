@@ -81,6 +81,7 @@ export default function Itemid() {
         name: metaData.data?.name,
         description: metaData.data.description,
         fileUrl: metaData.data.file,
+        file: metaData.data.file,
         songData: metaData.data.songData,
       };
       setNftData(item);
@@ -181,7 +182,7 @@ export default function Itemid() {
       // console.log(convertedPrice);
     } catch (err) {
       console.error(err);
-      setError(err.message);
+      setError("Something went wrong, refresh and try again");
     }
 
     setLoading(false);
@@ -250,7 +251,17 @@ export default function Itemid() {
                     >
                       {loading ? "Loading..." : "Subscribe for 0.03 FTM"}
                     </button>
-                  ) : null}
+                  ) : (
+                    <button
+                      className="buy_song_btn"
+                      onClick={() =>
+                        buyNFT(nftData.price.toString(), nftData.tokenId)
+                      }
+                      disabled={isPurchasing}
+                    >
+                      {isPurchasing ? "Loading" : "Buy Song"}
+                    </button>
+                  )}
 
                   {error && <p style={{ color: "red" }}>{error}</p>}
                   {success && (
@@ -266,7 +277,7 @@ export default function Itemid() {
                   ) : (
                     <p>You must subscribe to purchase this song.</p>
                   )}
-                  {isActive ? (
+                  {/* {isActive ? (
                     <button
                       className="buy_song_btn"
                       onClick={() =>
@@ -276,7 +287,7 @@ export default function Itemid() {
                     >
                       {isPurchasing ? "Loading" : "Buy Song"}
                     </button>
-                  ) : null}
+                  ) : null} */}
                 </div>
               ) : (
                 <div className="connect_id_wallet">

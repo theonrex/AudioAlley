@@ -71,7 +71,6 @@ export default function NftInfo({ nftData, children }) {
       })
     );
     setNfts(items);
-
     setLoadingState("loaded");
   }
 

@@ -246,8 +246,8 @@ const Marketplace = () => {
               <br />
               Create your nfts with link below
               <br />
-              <Link href="/">
-                <button className="purchase-btn">Click here to buy some</button>
+              <Link href="/upload">
+                <button className="purchase-btn">Click here to upload </button>
               </Link>
             </div>
           )}
