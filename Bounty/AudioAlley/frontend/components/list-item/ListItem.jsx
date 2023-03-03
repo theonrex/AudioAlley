@@ -345,7 +345,9 @@ export default function ListItem() {
       <div className="flex justify-center  container create_item rowx">
         <section className="create_form ">
           <form action="">
-            {submitError ? <p className="handlePriceError">{submitError}</p> : null}
+            {submitError ? (
+              <p className="handlePriceError">{submitError}</p>
+            ) : null}
             {step === 1 && (
               <div>
                 <div className="rowx">
@@ -378,7 +380,8 @@ export default function ListItem() {
                       value={formData.category}
                       onChange={handleCategoryChange}
                     >
-                      <option defaultValue="Love">Love</option>
+                      <option defaultValue="Select">Select</option>
+                      <option value="Love">Love</option>
                       <option value="Adventure">Adventure</option>
                       <option value="Motivation">Motivation</option>
                       <option value="Fantasy">Fantasy</option>
@@ -402,7 +405,8 @@ export default function ListItem() {
                       onChange={handleRatingChange}
                       className="  "
                     >
-                      <option defaultValue="generalAud">
+                      <option defaultValue="">Select</option>
+                      <option value="  General Audience">
                         General Audience
                       </option>
                       <option value="mature audience">Mature Audience</option>

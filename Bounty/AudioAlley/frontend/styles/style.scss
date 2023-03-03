@@ -1893,7 +1893,7 @@ select option:checked {
 .song_left h2 {
   font-size: 1.5em;
   font-weight: 400;
-  color: yellow;
+  color: $base-color;
 }
 .song_btn button {
   margin: 0 0.5em;
@@ -2421,6 +2421,7 @@ input[type="submit"] {
 
 .ql-editor {
   color: black !important;
+  background-color: white !important;
 }
 
 .nft_info_price_id span {
