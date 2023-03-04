@@ -2937,6 +2937,9 @@ input[type="submit"] {
 }
 
 @media screen and (max-width: 853px) {
+  .pop_up_modaal{
+    margin-top: 4em;
+  }
     .current_price_id{
     width: 100%;
     padding: 1em 0.3em;
@@ -2988,13 +2991,13 @@ input[type="submit"] {
     width: 100%;
   }
   .my_nft_box {
-    display: flex;
+  display: flex;
     width: 100%;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-content: space-around;
-    align-items: flex-end;
+    align-items: center;
   }
 }
 
