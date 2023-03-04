@@ -28,7 +28,7 @@ export default function Auth() {
 
   return (
     <section className=" container-xxl ">
-      {!connected && !refreshed ? <Authmessage /> : <ListItem />}
+      {connected ? <ListItem /> : <Authmessage />}
     </section>
   );
 }

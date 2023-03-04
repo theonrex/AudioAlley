@@ -153,6 +153,7 @@ export default function Itemid() {
     setLoading(true);
     setError("");
     setSuccess(false);
+    setIsActive(false);
 
     try {
       // Create provider and signer
@@ -186,6 +187,7 @@ export default function Itemid() {
     }
 
     setLoading(false);
+    setIsActive(true); // Set isActive to true after subscription is complete
   };
 
   const audioList1 = [
@@ -260,7 +262,7 @@ export default function Itemid() {
                   {isActive ? (
                     <div>
                       <p>
-                      subscription active until: {" "}
+                        subscription active until:{" "}
                         {new Date(expiryDate * 1000).toLocaleString()}{" "}
                       </p>
                       <button
