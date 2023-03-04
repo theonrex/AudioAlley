@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 const ReactJkMusicPlayer = dynamic(() => import("react-jinke-music-player"), {
   ssr: false,
 });
-import { MusicData } from "./MusicData";
+import { myMusicData } from "./myMusicData";
 
 const Demo = () => {
   const [songs, setSongs] = useState([]);
@@ -14,7 +14,7 @@ const Demo = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const items = await MusicData();
+      const items = await myMusicData();
       setSongs(items);
       setLoadingState("loaded");
     }
@@ -27,6 +27,8 @@ const Demo = () => {
     cover: song.image,
     musicSrc: song.fileUrl,
   }));
+
+  console.log(audioList1);
 
 
   const options = {

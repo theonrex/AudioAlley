@@ -33,8 +33,7 @@ contract NFT is ERC721URIStorage {
         _transfer(from, to, tokenId);
     }
 
-
-    function getContractAddress() public view returns (address){
-      return contractAddress;
+    function getContractAddress() public view returns (address) {
+        return contractAddress;
     }
 }

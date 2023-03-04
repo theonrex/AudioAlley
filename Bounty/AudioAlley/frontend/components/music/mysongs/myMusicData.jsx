@@ -1,4 +1,6 @@
 import { Contract, providers, utils } from "ethers";
+import React, { useState, useEffect } from "react";
+
 import axios from "axios";
 import {
   NFT_MARKETPLACE_ADDRESS,
@@ -7,7 +9,7 @@ import {
   NFT_MARKETPLACE_ABI,
 } from "../../../constants";
 
-export async function MusicData() {
+export async function myMusicData() {
   const ftmTestnet = "https://rpc.testnet.fantom.network";
   const ankrTestnet = "https://rpc.ankr.com/fantom_testnet";
 

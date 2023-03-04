@@ -2453,13 +2453,27 @@ input[type=submit] {
   width: 60px;
 }
 
+.group,
+.group svg {
+  color: #f4a700 !important;
+}
+
+.group:hover,
+.group:focus,
+.group:active,
+.group svg:hover,
+.group svg:focus,
+.group svg:active {
+  color: white;
+}
+
 .audio-lists-panel-content .audio-item.playing,
 .audio-lists-panel-content .audio-item.playing svg,
 .audio-lists-panel-content .audio-item.playing,
 .audio-lists-panel-content .audio-item.playing svg:focus,
 .audio-lists-panel-content .audio-item.playing,
 .audio-lists-panel-content .audio-item.playing svg:active {
-  color: #f4a700;
+  color: #f4a700 !important;
 }
 
 .audio-download {

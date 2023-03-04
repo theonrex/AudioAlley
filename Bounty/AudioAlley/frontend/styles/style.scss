@@ -2498,13 +2498,27 @@ input[type="submit"] {
 }
 
 //music
+.group,
+.group svg
+ {
+  color:  $base-color !important;
+}
+
+.group:hover,
+.group:focus,
+.group:active,
+.group svg:hover,
+.group svg:focus,
+.group svg:active{
+color: white;
+}
 .audio-lists-panel-content .audio-item.playing,
 .audio-lists-panel-content .audio-item.playing svg,
 .audio-lists-panel-content .audio-item.playing,
 .audio-lists-panel-content .audio-item.playing svg:focus,
 .audio-lists-panel-content .audio-item.playing,
 .audio-lists-panel-content .audio-item.playing svg:active {
-  color: $base-color;
+  color: $base-color !important;
 }
 .audio-download {
   display: none !important;

@@ -33,6 +33,7 @@ export default function MyItems() {
     if (!signer) return;
     loadMyNFTs();
   }, [signer]);
+
   const loadMyNFTs = async () => {
     setLoading(true);
 
@@ -55,7 +56,6 @@ export default function MyItems() {
         const tokenUri = await nftContract.tokenURI(i.tokenId);
         const metaData = await axios.get(tokenUri);
         let item = {
-          supply: metaData.data.supply,
           price: convertedPrice,
           tokenId: i.tokenId.toNumber(),
           seller: i.seller,
@@ -71,7 +71,7 @@ export default function MyItems() {
     setAllNFTs(allItems);
     setLoading(false);
   };
-
+console.log(allNFTs)
   return (
     <div>
       {!allNFTs.length && loading ? (

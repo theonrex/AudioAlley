@@ -11,7 +11,6 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import "react-jinke-music-player/assets/index.css";
 import "../styles/style.css";
-import Layout from "../Layout/Layout";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import {
   configureChains,
