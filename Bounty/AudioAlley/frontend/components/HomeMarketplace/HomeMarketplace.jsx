@@ -127,7 +127,7 @@ function HomeMarketplace() {
       >
         <h1>
           {" "}
-          Welcome to the AudioAlly NFT Music <br />
+          Welcome to the AudioAlley NFT Music <br />
           Marketplace
         </h1>
         <p>

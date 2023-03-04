@@ -26,11 +26,11 @@ import LowBalance from "../components/LowBalance";
 
 const FantomiChain = {
   id: 4002,
-  name: "  FANTOM ",
-  network: "FANTOM",
+  name: "  FANTOM TESTNET",
+  network: "FANTOM TESTNET",
   nativeCurrency: {
     decimals: 18,
-    name: "FANTOM",
+    name: "FANTOM TESTNET",
     symbol: "FTM",
   },
   rpcUrls: {
@@ -38,7 +38,7 @@ const FantomiChain = {
   },
   blockExplorers: {
     default: {
-      name: "FANTOM",
+      name: "FANTOM TESTNET",
       url: "https://testnet.ftmscan.com",
     },
   },
@@ -99,7 +99,7 @@ function MyApp({ Component, pageProps }) {
             </div>
           </div>
 
-          {/* <Footer /> */}
+          <Footer />
           <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
         </div>
       </RainbowKitProvider>

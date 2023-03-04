@@ -120,6 +120,9 @@ button {
 }
 
 /* navbar */
+.nav_SearchModal_li {
+  padding: 0 1em;
+}
 .navbar .connect_navbar {
   display: flex;
   flex-direction: row;
@@ -157,7 +160,7 @@ button {
 .navbar-brand > img {
   width: 50px;
 }
-.AccountBalance{
+.AccountBalance {
   display: none;
 }
 .AccountBalance_active {
@@ -177,24 +180,23 @@ button {
   padding: 0.5em 0;
   color: $base-color;
 }
-.AccountBalance_active img{
-width: 30px;
-    padding-left: 5px;
-      padding-right: 5px;
-height: 100%;
+.AccountBalance_active img {
+  width: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 100%;
 }
 .AccountBalance_active a,
 .low_ftm {
-    display: flex;
-    text-decoration: underline;
-    text-transform: uppercase !important;
-    line-height: 1em;
-    font-size: 0.9em;
-    color: white;
-    flex-direction: row;  
-    
+  display: flex;
+  text-decoration: underline;
+  text-transform: uppercase !important;
+  line-height: 1em;
+  font-size: 0.9em;
+  color: white;
+  flex-direction: row;
 
-    align-items: center;
+  align-items: center;
 }
 .AccountBalance_active a:hover {
   color: #f4a700;
@@ -285,7 +287,11 @@ a {
 /* From uiverse.io by @mrhyddenn */
 .buy-btn {
   background: #ffbf00;
-  background: linear-gradient(18deg, #ffbf00 0%, hwb(14 0% 55%) 100%);
+  background: linear-gradient(
+    18deg,
+    #ffbf00 0%,
+    hwb(14 0% 55%) 100%
+  ) !important;
   border: none;
   padding: 10px 10px;
   display: inline-block;
@@ -913,6 +919,7 @@ li {
   width: 50%;
   color: #fff;
   text-align: left;
+  font-weight: 600;
   text-transform: capitalize;
 }
 
@@ -1054,7 +1061,7 @@ li {
 
 .epic-btn {
   background: rgb(0, 0, 0);
-  background: linear-gradient(18deg, rgb(0, 0, 0) 0%, rgb(55, 18, 0) 100%);
+  background: linear-gradient(18deg, rgb(0, 0, 0) 0%, rgb(176, 62, 5) 100%);
   padding: 5px 30px;
   display: inline-block;
   font-size: 15px;
@@ -1208,13 +1215,13 @@ li {
   text-align: left;
 }
 .No_Listed_NFTs {
-    display: flex;
-    padding-top: 1em;
-    padding-bottom: 2em;
-    text-align: left !important;
-    flex-direction: column;
-    align-content: flex-end;
-    align-items: flex-start;
+  display: flex;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  text-align: left !important;
+  flex-direction: column;
+  align-content: flex-end;
+  align-items: flex-start;
 }
 .sold_nfts {
   width: 100%;
@@ -1296,11 +1303,8 @@ li {
 footer {
   position: relative;
   width: 100%;
-  margin-top: 3em;
+  margin-bottom: 8em;
   padding-top: 5em;
-  background-color: #090009;
-  background-image: radial-gradient(at 47% 33%, #67016a75 0, transparent 59%),
-    radial-gradient(at 82% 65%, #090009 0, transparent 55%);
 }
 
 footer p,
@@ -1321,7 +1325,7 @@ footer h1 {
   padding-top: 2em !important;
   color: white;
   width: 100%;
-  padding-top: 1em;
+  margin-bottom: 4em;
 }
 
 .socail_media_ul li {
@@ -1350,7 +1354,19 @@ li {
 }
 //marketplace
 .td_marketplace_btn_buy {
+  width: 70%;
   padding: 0.5em 1em;
+  color: white !important;
+  border: 2px solid var(--orange);
+  margin: auto 0.5em !important;
+  background: linear-gradient(
+    to right,
+    #ff6404 1%,
+    #f4a700 4%,
+    #ff6404 60%,
+    #f4a700 100%
+  ) !important;
+  box-shadow: inset 0 0 10px #f4a700, 0 0 9px 3px rgb(3 37 22 / 10%) !important;
 }
 table {
   width: 100%;
@@ -1743,6 +1759,7 @@ pre {
 }
 
 @media screen and (max-width: 352px) {
+
   .home_banner_span {
     font-size: 1.6em;
   }
@@ -1982,7 +1999,7 @@ select,
   width: 100%;
   margin: 1em auto;
   font-size: 15px;
-  padding: 0.7em 2.7em !important;
+  padding: 0.7em !important;
   letter-spacing: 0.06em;
   overflow: hidden;
   transition: all 0.3s;
@@ -1996,7 +2013,7 @@ select,
 }
 
 .btn_submit_nft {
-  width: 50%;
+  width: 70%;
 
   display: block;
   margin: 2em auto;
@@ -2004,7 +2021,6 @@ select,
 
 .btn_submit_nft {
   font-size: 15px;
-  padding: 0.7em 2.7em !important;
   letter-spacing: 0.06em;
   overflow: hidden;
   transition: all 0.3s;
@@ -2025,6 +2041,45 @@ select,
 }
 
 .btn_submit_nft:before {
+  content: "";
+  position: absolute;
+  width: 1em;
+  top: 0;
+  transition: transform 0.4s ease-in-out;
+  background: linear-gradient(
+    to right,
+    transparent 1%,
+    rgba(253, 27, 185, 0.1) 40%,
+    rgba(27, 253, 156, 0.1) 60%,
+    transparent 100%
+  );
+}
+
+.Previous_next{
+    font-size: 15px;
+  padding: 0.7em !important;
+  letter-spacing: 0.06em;
+  overflow: hidden;
+  transition: all 0.3s;
+  line-height: 1.4em;
+
+  display: block;
+  border: 2px solid var(--purple);
+ 
+  color: white;
+  box-shadow: inset 0 0 10px rgba(253, 174, 27, 0.4),
+    0 0 9px 3px rgba(27, 253, 156, 0.1) !important;
+}
+
+
+
+.Previous_next {
+  width: 50%;
+
+  display: block;
+  margin: 2em auto;
+}
+.Previous_next:before {
   content: "";
   position: absolute;
   width: 1em;
@@ -2385,7 +2440,7 @@ input[type="submit"] {
   text-transform: uppercase;
   font-weight: 600;
   color: white;
-  padding: 0.5em 0;
+  padding: 2em 0 0;
 }
 .subscribe_btn button {
   margin-top: 1em;
@@ -2412,12 +2467,15 @@ input[type="submit"] {
   width: 80%;
   margin: 1em auto;
   padding: 1em;
-  background: rgba(255, 255, 255, 0.89);
+  background: rgba(0, 0, 0, 0.89);
   box-shadow: 0 8px 32px 0 rgba(15, 17, 37, 0.37);
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.current_price_id .ql-editor{
+  border-radius: 0.3em;
 }
 
 .ql-editor {
@@ -2448,7 +2506,7 @@ input[type="submit"] {
 .audio-lists-panel-content .audio-item.playing svg:active {
   color: $base-color;
 }
-.audio-download{
+.audio-download {
   display: none !important;
 }
 .react-jinke-music-player-main
@@ -2617,6 +2675,23 @@ input[type="submit"] {
   }
 }
 @media screen and (max-width: 1000px) {
+  .song_preview {
+  margin-top: 3em !important;
+
+}
+  .homepage_market h3 span {
+    padding-left: 0;
+  }
+  .fav br {
+    display: none;
+  }
+  .gradient-box {
+    padding: 15px !important;
+  }
+  .first-nft {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .homepage_market h3 {
     font-size: 5vw;
   }
@@ -2711,7 +2786,7 @@ input[type="submit"] {
 
   .first-nft p {
     text-align: center;
-    width: 75%;
+    width: 80%;
     margin: auto !important;
   }
 
@@ -2738,7 +2813,7 @@ input[type="submit"] {
   }
 
   .fav {
-    padding: 10px 20px;
+    padding: 40px 20px;
   }
 
   //second section
@@ -2829,14 +2904,14 @@ input[type="submit"] {
   }
 
   .nft-img {
-    margin: 22px 12px;
+    margin: 22px auto;
   }
   .nft_info_id {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     align-content: center;
-    margin: auto 1em;
+    margin: auto 0.2em;
   }
 
   //footer
@@ -2862,6 +2937,10 @@ input[type="submit"] {
 }
 
 @media screen and (max-width: 853px) {
+    .current_price_id{
+    width: 100%;
+    padding: 1em 0.3em;
+  }
   .homepage_market .nft_home_img_width img,
   .nft_home_col29_text {
     width: 100%;
@@ -2920,6 +2999,7 @@ input[type="submit"] {
 }
 
 @media screen and (max-width: 698px) {
+
   .homepage_market .nft_home_img_width img {
     height: 300px;
   }
@@ -2945,16 +3025,7 @@ input[type="submit"] {
   .th_song_Category {
     display: none;
   }
-  .col25,
-  .col20,
-  .col29,
-  .col30,
-  .col40,
-  .col50,
-  .col60,
-  .col23 {
-    padding: 15px;
-  }
+
   .forth-section p {
     width: 90%;
   }
@@ -3122,8 +3193,6 @@ input[type="submit"] {
   }
 
   .epic-btn {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(18deg, rgb(0, 0, 0) 0%, rgb(55, 18, 0) 100%);
     padding: 5px 30px;
     display: inline-block;
     font-size: 15px;
@@ -3152,6 +3221,15 @@ input[type="submit"] {
   }
 }
 @media screen and (max-width: 497px) {
+  .meta-text {
+    font-size: 1.1em;
+  }
+  .container {
+    width: 97%;
+  }
+  .first-nft p {
+    width: 90%;
+  }
   .secure_ConnectButton {
     padding: 0.7em 0;
   }
@@ -3178,7 +3256,8 @@ input[type="submit"] {
   }
 
   .iekbcc0 {
-    font-size: 4vw !important;
+    font-size: 90% !important;
+    text-align: center;
   }
   .forth-section header {
     font-size: 1.5em;
@@ -3251,6 +3330,11 @@ input[type="submit"] {
 }
 
 @media screen and (max-width: 420px) {
+  .fav h2 {
+    width: 90%;
+    font-size: 0.8em;
+  }
+
   .AudioAlley {
     display: none;
   }
@@ -3308,13 +3392,34 @@ input[type="submit"] {
   .fav h1 {
     font-size: 1.2em;
   }
+
   .begin p {
     color: #fff;
     font-size: 13px;
   }
+  .col25,
+  .col20,
+  .col29,
+  .col30,
+  .col40,
+  .col50,
+  .col60,
+  .col23 {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
-@media screen and (max-width: 354px) {
+@media screen and (max-width: 360px) {
+  .first-nft p {
+    text-align: center;
+    width: 95%;
+    margin: auto !important;
+  }
+  .gather {
+    padding-top: 1.9em;
+    font-size: 1.5em;
+  }
   .secure h1 {
     font-size: 1em;
   }
@@ -3392,20 +3497,6 @@ input[type="submit"] {
     justify-content: space-between;
   }
 
-  //  .bi::before,
-  //  [class^="bi-"]::before,
-  //  [class*=" bi-"]::before {
-  //      display: inline-block;
-  //      font-family: bootstrap-icons !important;
-  //      font-style: normal;
-  //      font-weight: normal !important;
-  //      font-variant: normal;
-  //      text-transform: none;
-  //      line-height: 1;
-  //      vertical-align: auto;
-  //      -webkit-font-smoothing: antialiased;
-  //      -moz-osx-font-smoothing: grayscale;
-  //  }
   .explore-mg {
     margin: 15px auto;
     display: flex;
@@ -3421,8 +3512,6 @@ input[type="submit"] {
   }
 
   .epic-btn {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(18deg, rgb(0, 0, 0) 0%, rgb(55, 18, 0) 100%);
     padding: 5px 30px;
     display: inline-block;
     font-size: 15px;
@@ -3455,24 +3544,25 @@ input[type="submit"] {
 }
 
 @media screen and (max-width: 350px) {
-  [data-rk] ._9pm4ki3 {
-    bottom: 190px;
-    left: -190px;
-    padding: 10px;
-    right: -199px;
-    top: -200px;
-    transform: translateZ(0);
-    z-index: 2147483646;
+  .react-jinke-music-player-main .music-player-panel .panel-content .img-content{
+    width: 15px;
+    height: 15px;
   }
+    .audio-download svg, .reload-btn, .loop-btn {
+    width: 13px !important;
+    font-size: 7px !important;
+}
+  .gather {
+    padding-top: 1.6em;
+    font-size: 1.4em;
+  }
+ 
   .iekbcc0 {
     font-size: 0.8em !important;
   }
   .container {
     width: 100% !important;
     padding: 0 9px !important;
-  }
-  .gather {
-    font-size: 1.6em;
   }
 
   .first-nft {
@@ -3485,14 +3575,37 @@ input[type="submit"] {
   }
   .ju367v8o,
   .ju367va {
-    padding: 0.5em 0.7em !important;
     border-radius: 0.4em !important;
   }
   .ju367v2b {
     height: unset !important;
   }
 }
+
+@media screen and (max-width: 350px) {
+}
+@media screen and (max-width: 298px) {
+  .iekbcc0 {
+    font-size: 70% !important;
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 268px) {
+  .ql-snow.ql-toolbar button, .ql-snow .ql-toolbar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    height: 14px !important;
+    padding: 3px 5px;
+    width: 18px !important;
+}
+  .iekbcc0 {
+    font-size: 70% !important;
+    text-align: center;
+  }
   .nft_home_img_width img {
     width: 1.6em;
   }
@@ -3549,6 +3662,13 @@ input[type="submit"] {
   .song_title {
     font-size: 0.6em;
   }
+  [data-rk] ._1ckjpok7 {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-top: -200px;
+    padding-bottom: 200px;
+    top: 150px;
+}
 }
 
 //anime

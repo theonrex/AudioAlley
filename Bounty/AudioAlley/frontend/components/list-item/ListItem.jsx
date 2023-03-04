@@ -439,7 +439,7 @@ export default function ListItem() {
                 </div>
                 <button
                   type="button"
-                  className="btn_submit_nft"
+                  className="Previous_next"
                   onClick={handleNextStep}
                 >
                   Next
@@ -486,7 +486,7 @@ export default function ListItem() {
                 </div>
                 <button
                   type="button"
-                  className="btn_submit_nft"
+                  className=" Previous_next"
                   onClick={handlePrevStep}
                 >
                   Previous

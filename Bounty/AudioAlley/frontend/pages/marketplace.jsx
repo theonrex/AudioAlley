@@ -172,7 +172,7 @@ const Marketplace = () => {
           <table className="   nft_home_img_width marketplace_nft_text">
             <thead>
               <tr>
-                <th className="hashtag">#</th>
+                <th className="hashtag">ID</th>
                 <th className="th_song_title">Title</th>
                 <th className="th_song_Category">Category</th>
                 <th className="th_song_Rating"> Rating</th>

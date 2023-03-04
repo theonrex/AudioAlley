@@ -24,7 +24,7 @@ const Navbar = () => {
                     data-drawer-toggle="logo-sidebar"
                     aria-controls="logo-sidebar"
                     type="button"
-                    className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg  focus:outline-none focus:ring-2  dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg  focus:outline-none focus:ring-2  dark:text-gray-400 "
                   >
                     <span className="sr-only">Open sidebar</span>
                     <svg
@@ -95,7 +95,7 @@ const Navbar = () => {
                 <li>
                   <a
                     href="/"
-                    className="flex items-center p-2 text-base font-normal rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="flex items-center p-2 text-base font-normal rounded-lg dark:text-white "
                   >
                     <span className="ml-3"> Home</span>
                   </a>
@@ -103,7 +103,7 @@ const Navbar = () => {
                 <li>
                   <a
                     href="/my-items"
-                    className="flex items-center p-2 text-base font-normal rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="flex items-center p-2 text-base font-normal rounded-lg dark:text-white "
                   >
                     <span className="flex-1 ml-3 whitespace-nowrap">
                       Dashboard
@@ -113,7 +113,7 @@ const Navbar = () => {
                 <li>
                   <a
                     href="/marketplace"
-                    className="flex items-center p-2 text-base font-normal  rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="flex items-center p-2 text-base font-normal  rounded-lg dark:text-white "
                   >
                     <span className="flex-1 ml-3 whitespace-nowrap">
                       Marketplace
@@ -123,24 +123,15 @@ const Navbar = () => {
                 <li>
                   <a
                     href="/upload"
-                    className="flex items-center p-2 text-base font-normal rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="flex items-center p-2 text-base font-normal rounded-lg dark:text-white "
                   >
                     <span className="flex-1 ml-3 whitespace-nowrap">
                       Upload Music
                     </span>
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center p-2 text-base font-normal  rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                  >
-                    <span className="flex-1 ml-3 whitespace-nowrap">
-                      Products
-                    </span>
-                  </a>
-                </li>
-                <li>
+
+                <li className="nav_SearchModal_li">
                   <SearchModal />
                 </li>
               </ul>

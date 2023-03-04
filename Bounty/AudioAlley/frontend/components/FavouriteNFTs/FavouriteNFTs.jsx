@@ -144,7 +144,6 @@ export const FavouriteNFTs = () => {
                 </div>
                 <div className="meta-text col50">
                   <p>{favNft?.name}</p>
-                  <h3>ID #{favNft?.tokenId}</h3>
 
                   <p>{Number(favNft?.price).toFixed(3)} FTM</p>
 
