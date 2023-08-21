@@ -1,0 +1,261 @@
+.dark__mode{
+  background-color: #000000;
+
+  background-repeat: no-repeat;}
+
+.light__mode{
+    background-color: rgb(236, 236, 236);
+  background-image: radial-gradient(
+      at 47% 33%,
+      rgb(241, 212, 252) 0,
+      transparent 59%
+    ),
+    radial-gradient(at 82% 65%, rgb(235, 255, 236) 0, transparent 55%);
+  background-repeat: no-repeat;
+  color: black;
+}
+
+/* navbar */
+.light__mode .purchase_btn {
+  color: white !important;
+    border: 2px solid var(--purple);
+    background: linear-gradient(to right, #fd1bf5fa 1%, rgb(100, 0, 181) 40%, #92009f 60%, #92009f 100%);
+    box-shadow: inset 0 0 10px rgb(27 53 253 / 40%), 0 0 9px 3px rgb(27 253 156 / 10%);
+
+}
+.light__mode .navbar-toggler-icon {
+    filter: invert(0);
+}
+
+.light__mode .gather,
+.light__mode .first-section p,
+.light__mode .explore-mg span {
+    color: rgb(0, 0, 0);
+}
+.light__mode .nav-link {
+    color: black;
+
+}
+
+.light__mode .works {
+  background: #c7006b;
+  background: linear-gradient(
+    18deg,
+    rgba(199, 0, 107, 1) 0%,
+    rgba(14, 0, 115, 1) 100%
+  );
+}
+
+/* second section */
+
+.light__mode .second-section{
+  background-color: #e7dfe7;
+  padding-bottom: 2em;
+}
+
+.light__mode .fav h1{
+  color: #5a027e;
+}
+.light__mode .begin p {
+  color: #041b06;
+}
+
+.light__mode .third-section h1{
+
+    background: #b900d1; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #b900d1,
+    #00cbe6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #b900d1,
+    #00cbe6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.light__mode .third-section p {
+  color: #041b06;
+}
+
+.light__mode .nft-img,
+.light__mode .nft_home_img_width {
+  background-color: rgb(228, 228, 228);
+box-shadow: 0px 0px 6px 2px rgba(123, 10, 180, 0.107);
+
+}
+
+
+.light__mode .nft_home_img_width img{
+    border-radius: 9px;
+    border: none;
+}
+
+.light__mode .nft-img h3 {
+  color: #041b06;
+}
+.light__mode .eth-sale {
+  color: black;
+}
+
+.light__mode .eth-sale-icon svg {
+
+    color: #5a027e;
+}
+
+/* fourthsection */
+.light__mode .forth-section header {
+  color: black;
+}
+
+.light__mode .forth-section{
+  background-color: #e7dfe7;
+  margin-top: 1em;
+  font-weight: 700;
+  margin-bottom: 1em;
+  padding-bottom: 2em;
+}
+
+.light__mode .create_and_sell {
+    margin-top: 3em;
+    background: #07003c;
+    box-shadow: 0 8px 32px 0 #1f26875e;
+    backdrop-filter: blur(19.5px);
+    -webkit-backdrop-filter: blur(19.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.light__mode footer {
+    margin-top: 3em;
+    padding-top: 5em;
+    background-color: #07003c;
+    /* background-image: radial-gradient(at 47% 33%, rgba(103, 1, 106, 0.4588235294) 0, transparent 59%), radial-gradient(at 82% 65%, #090009 0, transparent 55%); */
+}
+
+.light__mode .nfthead .gradient-box{
+      background-color: rgb(236, 236, 236);
+    background-image: radial-gradient( at 47% 33%, rgb(241, 212, 252) 0, transparent 59% ), radial-gradient(at 82% 65%, rgb(235, 255, 236) 0, transparent 55%);
+    background-repeat: no-repeat;
+    color: #07003c;
+}
+
+.light__mode .ending h5{
+color: #0a0f1a;
+}
+
+/* dashboard */
+.light__mode .purchase-btn {
+    --green: #ffffff;
+    font-size: 15px;
+    padding: 0.7em 2.7em;
+    letter-spacing: 0.06em;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    line-height: 1.4em;
+    border: 2px solid var(--purple);
+ background: linear-gradient(to right, #fd1bf5fa 1%, rgb(100, 0, 181) 40%, #92009f 60%, #92009f 100%);
+    box-shadow: inset 0 0 10px rgb(27 53 253 / 40%), 0 0 9px 3px rgb(27 253 156 / 10%);
+    }
+
+    /* nftID */
+    .light__mode .nftinfoId {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);    border-radius: 1em;
+}
+.light__mode .nft_info_id header{
+  color: #060107;
+}
+
+/* marketplace */
+.light__mode .marketplace_nft_text,
+.light__mode .No_purchase,
+.light__mode .No_purchase a {
+ 
+  color: black;
+}
+.light__mode .nft_marketpace header {
+  color: black;
+}
+
+/* create nft */
+.light__mode .btn_submit_nft{
+  font-size: 15px;
+  padding: 0.7em 2.7em !important;
+  letter-spacing: 0.06em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  line-height: 1.4em;
+  border: 2px solid var(--purple);
+  background: linear-gradient(
+    to right,
+    rgb(253, 27, 245) 1%,
+    rgb(41, 0, 129) 100%
+    
+  );
+  color: white;
+  box-shadow: inset 0 0 10px rgba(27, 53, 253, 0.4),
+    0 0 9px 3px rgba(27, 253, 156, 0.1);
+    }
+
+    .btn_submit_nft:before {
+  content: "";
+  position: absolute;
+  width: 1em;
+  top: 0;
+  transition: transform 0.4s ease-in-out;
+  background: linear-gradient(
+    to right,
+    transparent 1%,
+    rgba(253, 27, 185, 0.1) 40%,
+    rgba(27, 253, 156, 0.1) 60%,
+    transparent 100%
+  );
+}
+.light__mode input, textarea {
+  background-color: #060032 !important;
+    border: 1px solid #ab0061;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #fff;
+    display: inline-block;
+    margin: 8px 0;
+    padding: 12px 20px;
+}
+
+/* my_items */
+
+.light__mode .my_items header {
+    padding-top: 1.3em;
+    color: #060032;
+}
+
+.light__mode .nft_details_ID{
+  color: black;
+}
+.light__mode .mylisteditems, .sold_nfts, .No_Listed_NFTs {
+    color: rgb(2, 1, 1);
+}
+.light__mode .nft_details_ID span{
+  color: #3c0082 !important;
+}
+
+.light__mode .No_purchase_History a{
+  color: #5a027e;
+}
+
+/* profile */
+
+.light__mode .mylisteditems{
+  color: black;
+}

@@ -1,0 +1,34 @@
+/* ImageLoader.module.css */
+
+/* Styles for the skeleton loader */
+.skeleton_container {
+  width: 100%;
+  height: 250px;
+  margin: auto;
+  border-radius: 0.5em;
+  margin-bottom: 0.8em;
+  background-image: linear-gradient(90deg, #2f1200 25%, #502b00 50%, #311d00 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.TextBox{
+     width: 100%;
+  height: 20px;
+  margin: auto;
+  border-radius: 0.5em;
+  margin-bottom: 0.8em;
+  background-image: linear-gradient(90deg, #2f1200 25%, #502b00 50%, #311d00 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+/* Keyframes for the loading animation */
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
