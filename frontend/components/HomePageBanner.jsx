@@ -98,7 +98,7 @@ function HomePageBanner() {
           </div>
         </div>
         <div className="col50 nfthead">
-          {!homeNft ? (
+          {homeNft ? (
             <div className="bid gradient-box">
               <div>
                 <Image
